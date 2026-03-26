@@ -248,6 +248,105 @@
         }
 
         /* Reveal Animation Utility */
+        /* Dobra 4: Social Proof Styles (Refined) */
+        .social-proof-section {
+            position: relative;
+            padding: 120px 0;
+            overflow: hidden;
+            background: #002A5B; /* standard navy */
+            background: radial-gradient(circle at 50% -10%, rgba(255, 140, 0, 0.08), transparent 70%), 
+                        radial-gradient(circle at 90% 80%, rgba(0, 174, 157, 0.05), transparent 50%),
+                        #002A5B;
+        }
+        
+        /* Carousel Track */
+        .reviews-carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 40px 0;
+        }
+        .reviews-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            gap: 0;
+        }
+        .review-card-wrapper {
+            flex: 0 0 100%; /* Mobile: 1 card */
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        @media (min-width: 768px) {
+            .review-card-wrapper {
+                flex: 0 0 33.333%; /* Desktop: 3 cards */
+            }
+        }
+        
+        .review-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.4s ease;
+        }
+        .review-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 140, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .stars { color: #FF8C00; }
+        
+        .nav-arrow {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 30;
+        }
+        .nav-arrow:hover {
+            background: #FF8C00;
+            color: white;
+            border-color: #FF8C00;
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+        }
+        
+        .selo-orbit {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 140px;
+            height: 140px;
+            z-index: 20;
+            animation: orbit-subtle 12s linear infinite;
+        }
+        @keyframes orbit-subtle {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(0, 10px) rotate(0deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .mosaico-social-anchor {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
         .reveal-active {
             opacity: 1 !important;
             transform: translateY(0) !important;
@@ -648,8 +747,14 @@
                                         Atendimento imediato em horário comercial para consultas de rotina ou urgências. Diagnósticos precisos para sua tranquilidade.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
-                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
-                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-visible group/btn border border-white/20">
+                                            <!-- Easter Egg Sounds -->
+                                            <span class="absolute -top-6 left-[10%] text-orange font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
+                                            <span class="absolute -top-8 right-[15%] text-navy font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
+                                            
+                                            <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+                                                <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            </div>
                                             <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
                                             <span class="relative z-10">Agendar Consulta</span>
                                         </a>
@@ -671,8 +776,14 @@
                                         Protocolo completo de imunização (V10, Raiva, Gripe) com as melhores marcas mundiais para proteção total.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
-                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
-                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-visible group/btn border border-white/20">
+                                            <!-- Easter Egg Sounds -->
+                                            <span class="absolute -top-6 left-[10%] text-orange font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
+                                            <span class="absolute -top-8 right-[15%] text-navy font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
+                                            
+                                            <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+                                                <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            </div>
                                             <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
                                             <span class="relative z-10">Ver Protocolo</span>
                                         </a>
@@ -694,8 +805,14 @@
                                         Procedimentos seguros com anestesia monitorada e foco total no conforto e na recuperação rápida do pet.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
-                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
-                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-visible group/btn border border-white/20">
+                                            <!-- Easter Egg Sounds -->
+                                            <span class="absolute -top-6 left-[10%] text-orange font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
+                                            <span class="absolute -top-8 right-[15%] text-navy font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
+                                            
+                                            <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+                                                <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            </div>
                                             <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
                                             <span class="relative z-10">Saber Mais</span>
                                         </a>
@@ -717,8 +834,14 @@
                                         Facilitamos seu dia: exames laboratoriais e parcerias para Raio-X e Ultrassom com agendamento direto na clínica.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
-                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
-                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-visible group/btn border border-white/20">
+                                            <!-- Easter Egg Sounds -->
+                                            <span class="absolute -top-6 left-[10%] text-orange font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
+                                            <span class="absolute -top-8 right-[15%] text-navy font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
+                                            
+                                            <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+                                                <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            </div>
                                             <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
                                             <span class="relative z-10">Agendar Exame</span>
                                         </a>
@@ -740,8 +863,14 @@
                                         Use seu plano de saúde pet aqui! Somos parceiros oficiais para garantir economia e o melhor atendimento.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
-                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
-                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-visible group/btn border border-white/20">
+                                            <!-- Easter Egg Sounds -->
+                                            <span class="absolute -top-6 left-[10%] text-orange font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
+                                            <span class="absolute -top-8 right-[15%] text-navy font-montserrat font-extrabold text-xs opacity-0 group-hover/btn:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
+                                            
+                                            <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+                                                <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            </div>
                                             <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
                                             <span class="relative z-10">Ver Convênios</span>
                                         </a>
@@ -753,14 +882,103 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- SEO Booster Footer -->
-            <div class="mt-24 md:mt-32 text-center">
-                <p class="text-navy/30 font-inter text-xs md:text-sm font-bold uppercase tracking-[0.2em] select-none">
-                    Referência em cuidados pet para moradores do Itaipu, Barreiro e região.
+    <!-- [Dobra 4] Prova Social Dinâmica -->
+    <section id="social-proof" class="social-proof-section relative w-full bg-[#002A5B] z-20">
+        <!-- Scattered Texture Layer (Replicated from Dobra 2 for Consistency) -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <!-- Left side icons -->
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[8%] md:top-[12%] left-[4%] md:left-[8%] text-white/5 text-4xl md:text-5xl rotate-[15deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_1s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute top-[45%] left-[2%] md:left-[5%] text-orange/10 text-5xl md:text-6xl rotate-12 opacity-0 animate-[fadeInOut_12s_ease-in-out_infinite_4s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[25%] md:bottom-[20%] left-[8%] md:left-[10%] text-white/5 text-3xl md:text-4xl rotate-[160deg] opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_3s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:stethoscope" class="absolute top-[5%] left-[45%] text-white/5 text-4xl rotate-45 opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_6s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[35%] left-[30%] text-orange/10 text-3xl rotate-[-20deg] opacity-0 animate-[fadeInOut_7s_ease-in-out_infinite_2s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[40%] left-[20%] text-white/10 text-3xl rotate-[40deg] opacity-0 animate-[fadeInOut_11s_ease-in-out_infinite_7s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[10%] left-[35%] text-orange/15 text-4xl md:text-5xl rotate-[-10deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_5s]"></iconify-icon>
+            
+            <!-- Right side icons -->
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[12%] md:top-[8%] right-[20%] md:right-[25%] text-orange/15 text-3xl md:text-4xl rotate-[220deg] opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_1s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute top-[18%] md:top-[20%] right-[5%] md:right-[8%] text-white/10 text-4xl md:text-5xl -rotate-12 opacity-0 animate-[fadeInOut_11s_ease-in-out_infinite_4s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[45%] right-[10%] md:right-[18%] text-white/10 text-3xl md:text-4xl rotate-[-40deg] opacity-0 animate-[fadeInOut_7s_ease-in-out_infinite_2s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[60%] right-[3%] md:right-[5%] text-orange/15 text-2xl md:text-3xl rotate-45 opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_6s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:stethoscope" class="absolute bottom-[35%] md:bottom-[30%] right-[15%] md:right-[22%] text-orange/15 text-5xl md:text-6xl -rotate-[20deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_3s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute bottom-[10%] md:bottom-[15%] right-[4%] md:right-[5%] text-white/10 text-4xl md:text-5xl rotate-12 opacity-0 animate-[fadeInOut_12s_ease-in-out_infinite_7s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[5%] right-[25%] md:right-[30%] text-white/10 text-4xl md:text-5xl rotate-90 opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_5s]"></iconify-icon>
+            
+            <!-- Playful Texts scattered -->
+            <span class="absolute top-[25%] left-[15%] md:left-[20%] text-white/10 font-montserrat font-extrabold text-xl md:text-2xl -rotate-12 select-none opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_2s]">au-au!</span>
+            <span class="absolute bottom-[45%] md:bottom-[50%] left-[30%] md:left-[38%] text-orange/15 font-montserrat font-extrabold text-lg md:text-xl rotate-12 select-none opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_6s]">miauuu!</span>
+            <span class="absolute top-[50%] md:top-[60%] right-[25%] md:right-[12%] text-white/10 font-montserrat font-extrabold text-2xl md:text-3xl rotate-[20deg] select-none opacity-0 animate-[fadeInOut_11s_ease-in-out_infinite_3s]">au-au!</span>
+            <span class="absolute bottom-[25%] md:bottom-[20%] right-[40%] md:right-[35%] text-orange/15 font-montserrat font-extrabold text-xl md:text-2xl -rotate-[15deg] select-none opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_5s]">miauuu!</span>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center">
+            
+            <!-- (Mosaic Anchor Removed) -->
+            
+            <!-- 2. Copywriting Estratégico -->
+            <div class="text-center mb-12 max-w-3xl opacity-0 translate-y-10 transition-all duration-1000" id="social-copy-container">
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-montserrat font-black text-white mb-6 tracking-tight drop-shadow-lg">
+                    A Voz do Barreiro: <span class="text-orange">Histórias Reais</span> de Carinho e Confiança.
+                </h2>
+                <div class="h-1.5 w-24 bg-orange rounded-full mx-auto mb-8 shadow-[0_0_15px_#FF8C00]"></div>
+                <p class="text-base md:text-xl text-white/80 font-inter font-medium leading-relaxed">
+                    Veja por que somos a clínica veterinária no Barreiro com nota 4.8 no Google. Depoimentos reais de quem confia na SuperDog.
                 </p>
             </div>
 
+            <!-- 3. Reviews Horizontal Carousel -->
+            <div class="relative w-full max-w-6xl mx-auto px-12 group/carousel">
+                <!-- Nav Arrows -->
+                <div class="absolute top-1/2 -left-4 md:-left-8 -translate-y-1/2 nav-arrow z-30" onclick="moveReviews(-1)">
+                    <iconify-icon icon="solar:alt-arrow-left-bold" width="24"></iconify-icon>
+                </div>
+                <div class="absolute top-1/2 -right-4 md:-right-8 -translate-y-1/2 nav-arrow z-30" onclick="moveReviews(1)">
+                    <iconify-icon icon="solar:alt-arrow-right-bold" width="24"></iconify-icon>
+                </div>
+
+                <div class="reviews-carousel-container">
+                    <div id="reviews-track" class="reviews-track">
+                        <!-- 10+ Reviews will be injected here -->
+                        <div class="flex items-center justify-center py-20 w-full text-white/40 font-inter tracking-widest uppercase text-sm animate-pulse">
+                            Carregando depoimentos...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CTA Button (Standard WhatsApp) -->
+            <div class="mt-16 w-full max-w-md flex flex-col items-center">
+                <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-8 py-4 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-base md:text-lg flex items-center justify-center gap-3 transition-all duration-500 hover:scale-[1.05] active:scale-95 shadow-[0_15px_35px_rgba(37,211,102,0.4)] hover:shadow-[0_20px_50px_rgba(37,211,102,0.5)] overflow-visible group/btn-social border border-white/20">
+                    <!-- Easter Egg Sounds -->
+                    <span class="absolute -top-8 left-[10%] text-orange font-montserrat font-extrabold text-sm opacity-0 group-hover/btn-social:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
+                    <span class="absolute -top-10 right-[15%] text-white font-montserrat font-extrabold text-base opacity-0 group-hover/btn-social:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
+                    
+                    <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+                        <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn-social:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    </div>
+                    <iconify-icon icon="ic:baseline-whatsapp" width="24" class="relative z-10"></iconify-icon>
+                    <span class="relative z-10 tracking-tight">Falar com um Especialista Agora</span>
+                </a>
+                <p class="mt-4 text-white/40 font-inter text-xs font-medium flex items-center gap-2">
+                    <iconify-icon icon="solar:shield-check-bold" class="text-orange"></iconify-icon>
+                    Atendimento imediato via WhatsApp
+                </p>
+            </div>
+            
+            <!-- Layer 2: Selo Flutuante -->
+            <div class="selo-orbit hidden lg:block">
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Parceiro Pet Love" class="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"/>
+            </div>
+        </div>
+
+        <!-- SEO GEO Booster Footer -->
+        <div class="mt-24 text-center opacity-30 select-none px-6 pb-20">
+            <p class="text-white font-inter text-[10px] md:text-sm font-bold uppercase tracking-[0.2em]">
+                Referência em cuidados pet no Barreiro, Itaipu e região há mais de 20 anos.
+            </p>
         </div>
     </section>
 
@@ -778,8 +996,15 @@
                 });
             }, { threshold: 0.1 });
 
-            const revealContainer = document.getElementById('reveal-container');
-            if (revealContainer) revealObserver.observe(revealContainer);
+            const revealElements = [
+                document.getElementById('reveal-container'),
+                document.getElementById('social-anchor-container'),
+                document.getElementById('social-copy-container')
+            ];
+            
+            revealElements.forEach(el => {
+                if (el) revealObserver.observe(el);
+            });
 
             // 2. Parallax Effect for Mosaico
             const mosaico = document.getElementById('mosaico-parallax');
@@ -828,6 +1053,75 @@
             }
 
             startAutoRotate();
+
+            // 4. Google Reviews Logic (Horizontal Carousel)
+            const track = document.getElementById('reviews-track');
+            let reviewIndex = 0;
+            const API_KEY = 'SUA_CHAVE_API'; 
+
+            const mockReviews = [
+                { author: "Xtez games", date: "há 2 meses", text: "Tinha perdido a esperança sobre meu cachorro, levei na super dog, fez consulta, passou os medicamentos, hoje ele esta ótimo." },
+                { author: "Luciana Patricia", date: "há 2 meses", text: "Alguns anos eu levo minhas pts, super confio no trabalho deles. Sempre minhas cachorrinhas voltam super feliz e bem limpinhas e cheirosas. eu super indico" },
+                { author: "FRANZ ROGÉRIO", date: "há 1 mês", text: "Atendimento excelente, sempre atenciosos preço Justo e amor no que faz. Super recomendo." },
+                { author: "Rafael martins", date: "há 11 meses", text: "Pensa em um clima gostoso essa loja, pessoa super alto astral. Equipe bem treinada e motivada a atender bem e com qualidade. A veterinária Rafaela foi muito atenciosa." },
+                { author: "Warley barber", date: "há 1 ano", text: "Lugar top, pessoas de confiança e com um excelente trabalho de qualidade, amei o tratamento com meu pet, e ainda buscam em casa e trás perfeito." },
+                { author: "LUIZ ALVES BARRETO RESENDE", date: "há 7 meses", text: "Fui bem atendido Boas orientacoes pea castrar meu pet" },
+                { author: "Dayane Santos", date: "há 1 ano", text: "Atendimento excelente, o pessoal de lá são super educados e carinhoso com minha pet... Super indico ... Obrigado pelo carinho de sempre 💖" },
+                { author: "eleci oliveira", date: "há 2 anos", text: "Recomendo a todos para cuidar do seu pet. São profissionais super dedicados. O motorista que transporta os pets é de extrema educação e muito prestativo. A médica veterinária é uma pérola." },
+                { author: "Sol Ribeiro", date: "há 11 meses", text: "Excelente trabalho. Muito atenciosos. Obrigada por cuidar bem das minhas meninas 🥰" },
+                { author: "Eliane Goulart", date: "há 2 anos", text: "Um ótimo lugar, atendimento impecável pessoal atencioso com os pets e com nós clientes que depositamos confiança! Nota 10 💖" }
+            ];
+
+            function renderCarouselReviews(reviews) {
+                track.innerHTML = '';
+                reviews.forEach(review => {
+                    const avatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(review.author)}&background=00AE9D&color=fff&bold=true`;
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'review-card-wrapper';
+                    wrapper.innerHTML = `
+                        <div class="review-card">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center gap-3">
+                                    <img src="${avatar}" class="w-10 h-10 rounded-full border border-white/10" alt="${review.author}">
+                                    <div>
+                                        <h4 class="text-white font-montserrat font-bold text-xs md:text-sm leading-tight">${review.author}</h4>
+                                        <span class="text-white/40 font-inter text-[9px] uppercase tracking-wider">${review.date}</span>
+                                    </div>
+                                </div>
+                                <iconify-icon icon="logos:google-icon" width="16" class="opacity-80"></iconify-icon>
+                            </div>
+                            <div class="flex gap-0.5 mb-3">
+                                <iconify-icon icon="solar:star-bold" class="stars text-[10px]"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="stars text-[10px]"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="stars text-[10px]"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="stars text-[10px]"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="stars text-[10px]"></iconify-icon>
+                            </div>
+                            <p class="text-white/70 font-inter text-[13px] md:text-sm leading-relaxed italic line-clamp-4">
+                                "${review.text}"
+                            </p>
+                        </div>
+                    `;
+                    track.appendChild(wrapper);
+                });
+            }
+
+            window.moveReviews = (direction) => {
+                const step = window.innerWidth >= 768 ? 33.333 : 100;
+                const totalCards = mockReviews.length;
+                const maxIndex = window.innerWidth >= 768 ? totalCards - 3 : totalCards - 1;
+                
+                reviewIndex += direction;
+                if (reviewIndex < 0) reviewIndex = maxIndex;
+                if (reviewIndex > maxIndex) reviewIndex = 0;
+                
+                track.style.transform = `translateX(-${reviewIndex * step}%)`;
+            };
+
+            // Auto-rotate every 5s
+            setInterval(() => moveReviews(1), 5000);
+
+            renderCarouselReviews(mockReviews);
         });
     </script>
 </body>
