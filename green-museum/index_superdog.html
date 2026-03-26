@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Super Dog - A Medicina que seu pet merece</title>
+    <!-- Tailwind CDN for arbitrary classes to work without build step -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: '#002A5B',
+                        orange: '#FF8C00',
+                        red: '#E31B23',
+                    },
+                    animation: {
+                        'slide-in-left': 'slideInLeft 1s ease-out forwards',
+                        'float-up': 'floatUp 1s ease-out forwards',
+                        'float-base': 'floatBase 6s ease-in-out infinite',
+                        'float-badge': 'floatBadge 5s ease-in-out infinite',
+                        'carousel-1': 'carousel1 12s infinite ease-in-out',
+                        'carousel-2': 'carousel2 12s infinite ease-in-out',
+                        'pulse-red': 'pulseRed 2s infinite',
+                    },
+                    keyframes: {
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        floatUp: {
+                            '0%': { opacity: '0', transform: 'translateY(100px) rotate(2deg)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) rotate(2deg)' },
+                        },
+                        floatBase: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(2deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(3deg)' },
+                        },
+                        floatOverlap: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(-4deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(-2deg)' },
+                        },
+                        floatBadge: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        carousel1: {
+                            '0%, 45%': { opacity: '1', transform: 'scale(1)' },
+                            '50%, 95%': { opacity: '0', transform: 'scale(1.05)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        carousel2: {
+                            '0%, 45%': { opacity: '0', transform: 'scale(1.05)' },
+                            '50%, 95%': { opacity: '1', transform: 'scale(1)' },
+                            '100%': { opacity: '0', transform: 'scale(1.05)' },
+                        },
+                        pulseGreen: {
+                            '0%': { boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.5)' },
+                            '70%': { boxShadow: '0 0 0 20px rgba(37, 211, 102, 0)' },
+                            '100%': { boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' },
+                        },
+                        sweep: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(200%)' },
+                        },
+                        popBark: {
+                            '0%': { opacity: '0', transform: 'translateY(10px) scale(0.8)' },
+                            '20%, 80%': { opacity: '1', transform: 'translateY(0) scale(1.1)' },
+                            '100%': { opacity: '0', transform: 'translateY(-15px) scale(0.9)' },
+                        },
+                        walkPoint: {
+                            '0%, 100%': { opacity: '0.2', transform: 'translateY(-3px)' },
+                            '50%': { opacity: '1', transform: 'translateY(3px)' },
+                        },
+                        fadeInOut: {
+                            '0%, 100%': { opacity: '0', transform: 'scale(0.95)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500;800&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #FAFAFA;
+            color: #262624;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-navy selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="w-full px-4 py-1.5 md:py-2 md:px-6 flex items-center justify-between z-50 relative bg-white/70 backdrop-blur-[12px] border-b border-stone-200">
+        <!-- Logos Parceria -->
+        <div class="flex items-center gap-4 md:gap-10 pl-2">
+            <!-- Clínica (Maior) usando scale para não esticar a altura do cabeçalho -->
+            <div class="h-12 md:h-16 flex items-center justify-center">
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA.png" alt="Super Dog Clínica" class="h-full w-auto object-contain mix-blend-multiply origin-left scale-[1.3] md:scale-[1.6] transform hover:scale-[1.7] transition-transform"/>
+            </div>
+            
+            <div class="h-8 md:h-10 w-[2px] bg-navy/10 rounded-full ml-4 md:ml-8"></div>
+            
+            <!-- Pet Shop (Menor) -->
+            <div class="h-10 md:h-12 flex items-center justify-center">
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP.png" alt="Super Dog Pet Shop" class="h-full w-auto object-contain mix-blend-multiply scale-[1.1] md:scale-125 transform hover:scale-150 transition-transform"/>
+            </div>
+        </div>
+        
+        <!-- Plano Pet Love Highlight -->
+        
+        <!-- CTA Telefone -->
+        <div class="flex items-center gap-4 pr-2 pb-1 md:pb-0">
+            <a class="flex items-center justify-center px-4 py-1.5 md:px-6 md:py-2 bg-navy text-white rounded-full text-sm font-inter font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_4px_12px_rgba(0,42,91,0.25)] hover:shadow-[0_6px_20px_rgba(0,42,91,0.3)] hover:bg-[#001f44] gap-2" href="tel:+5531988579302">
+                <iconify-icon icon="solar:phone-calling-bold" width="18" class="animate-pulse"></iconify-icon>
+                (31) 98857-9302
+            </a>
+        </div>
+    </nav>
+
+    <!-- [Dobra 1] Hero Section -->
+    <section class="flex-grow flex flex-col md:px-12 lg:flex-row lg:gap-10 w-full max-w-7xl mx-auto px-5 py-6 md:py-8 lg:py-0 min-h-[calc(100vh-88px)] md:min-h-[calc(100vh-100px)] relative items-center justify-center overflow-hidden">
+        
+        <!-- Scattered Texture Layer (Paws, Cats, Stethoscopes & Texts fading in/out) -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <!-- Left side icons -->
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[8%] md:top-[12%] left-[4%] md:left-[8%] text-navy/10 text-4xl md:text-5xl rotate-[15deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_1s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute top-[45%] left-[2%] md:left-[5%] text-orange/10 text-5xl md:text-6xl rotate-12 opacity-0 animate-[fadeInOut_12s_ease-in-out_infinite_4s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[25%] md:bottom-[20%] left-[8%] md:left-[10%] text-navy/10 text-3xl md:text-4xl rotate-[160deg] opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_3s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:stethoscope" class="absolute top-[5%] left-[45%] text-navy/10 text-4xl rotate-45 opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_6s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[35%] left-[30%] text-orange/10 text-3xl rotate-[-20deg] opacity-0 animate-[fadeInOut_7s_ease-in-out_infinite_2s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[40%] left-[20%] text-navy/10 text-3xl rotate-[40deg] opacity-0 animate-[fadeInOut_11s_ease-in-out_infinite_7s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[10%] left-[35%] text-orange/10 text-4xl md:text-5xl rotate-[-10deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_5s]"></iconify-icon>
+            
+            <!-- Right side icons -->
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[12%] md:top-[8%] right-[20%] md:right-[25%] text-orange/10 text-3xl md:text-4xl rotate-[220deg] opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_1s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute top-[18%] md:top-[20%] right-[5%] md:right-[8%] text-navy/10 text-4xl md:text-5xl -rotate-12 opacity-0 animate-[fadeInOut_11s_ease-in-out_infinite_4s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[45%] right-[10%] md:right-[18%] text-navy/10 text-3xl md:text-4xl rotate-[-40deg] opacity-0 animate-[fadeInOut_7s_ease-in-out_infinite_2s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[60%] right-[3%] md:right-[5%] text-orange/10 text-2xl md:text-3xl rotate-45 opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_6s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:stethoscope" class="absolute bottom-[35%] md:bottom-[30%] right-[15%] md:right-[22%] text-orange/10 text-5xl md:text-6xl -rotate-[20deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_3s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute bottom-[10%] md:bottom-[15%] right-[4%] md:right-[5%] text-navy/10 text-4xl md:text-5xl rotate-12 opacity-0 animate-[fadeInOut_12s_ease-in-out_infinite_7s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[5%] right-[25%] md:right-[30%] text-navy/10 text-4xl md:text-5xl rotate-90 opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_5s]"></iconify-icon>
+            
+            <!-- Playful Texts scattered -->
+            <span class="absolute top-[25%] left-[15%] md:left-[20%] text-navy/10 font-montserrat font-extrabold text-xl md:text-2xl -rotate-12 select-none opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_2s]">au-au!</span>
+            <span class="absolute bottom-[45%] md:bottom-[50%] left-[30%] md:left-[38%] text-orange/10 font-montserrat font-extrabold text-lg md:text-xl rotate-12 select-none opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_6s]">miauuu!</span>
+            <span class="absolute top-[50%] md:top-[60%] right-[25%] md:right-[12%] text-navy/10 font-montserrat font-extrabold text-2xl md:text-3xl rotate-[20deg] select-none opacity-0 animate-[fadeInOut_11s_ease-in-out_infinite_3s]">au-au!</span>
+            <span class="absolute bottom-[25%] md:bottom-[20%] right-[40%] md:right-[35%] text-orange/10 font-montserrat font-extrabold text-xl md:text-2xl -rotate-[15deg] select-none opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_5s]">miauuu!</span>
+
+        </div>
+
+        <!-- Left Content (Text) -->
+        <div class="flex-1 w-full flex flex-col items-start pt-4 lg:pt-6 z-10">
+            
+            <!-- Pet Love Badge -->
+            <div class="inline-flex items-center gap-2 md:gap-3 px-4 py-1.5 md:px-6 md:py-2.5 rounded-full border border-navy/10 bg-white/60 backdrop-blur-md shadow-sm mb-4 lg:mb-6 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards] hover:border-orange/30 transition-colors group cursor-default mt-0 overflow-hidden h-9 md:h-12 max-w-full">
+                <span class="text-[10px] md:text-sm font-inter font-extrabold text-navy uppercase tracking-widest pt-0.5 whitespace-nowrap">Aceitamos Convênio:</span>
+                <div class="h-14 md:h-24 w-24 md:w-36 flex items-center justify-start pointer-events-none">
+                    <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Convênio Pet Love" class="w-full h-full object-contain drop-shadow-sm transform scale-[1.7] md:scale-[2.0] transform-gpu origin-center group-hover:scale-[2.2] transition-transform"/>
+                </div>
+            </div>
+            
+            <h1 class="text-[1.7rem] leading-[1.1] md:text-4xl lg:text-5xl font-montserrat text-navy mb-4 lg:mb-6 md:leading-[1.15] tracking-tight drop-shadow-sm max-w-[650px] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
+                Amamos o seu pet <span class="font-medium font-inter italic text-stone-500">como você ama</span>, com a confiança de quem cuida dos Pets do Barreiro <span class="font-extrabold text-orange relative inline-block group mt-1 lg:mt-3">há 20 anos<span class="absolute -bottom-1 left-0 w-full h-1.5 md:h-2 bg-orange/20 rounded-full group-hover:bg-orange/40 transition-colors"></span></span>.
+            </h1>
+            
+            <p class="text-sm md:text-lg text-stone-600 font-inter font-normal max-w-lg leading-relaxed mb-6 lg:mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
+                Unindo a tradição da <strong class="text-navy font-bold">SuperDog</strong> à dedicação da nossa Clínica Veterinária. Se você procura um veterinário no Barreiro que já conhece a história do seu pet e trata cada amigo como parte da família.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto mt-2 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
+                <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-base md:text-lg flex items-center justify-center gap-3 transition-all duration-500 hover:-translate-y-1.5 shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_rgba(37,211,102,0.6)] overflow-visible group border border-white/20 outline-none animate-[pulseGreen_2.5s_infinite]">
+                    
+                    <!-- Easter Egg Hover (Textos Flutuantes Pop-up) -->
+                    <span class="absolute -top-6 md:-top-8 left-[10%] text-orange font-montserrat font-extrabold text-xs md:text-sm opacity-0 group-hover:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
+                    <span class="absolute -top-8 md:-top-10 right-[15%] text-navy font-montserrat font-extrabold text-sm md:text-[15px] opacity-0 group-hover:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
+
+                    <!-- Máscara de Clip para o Brilho contínuo no hover -->
+                    <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+                        <div class="absolute inset-0 w-full h-full -translate-x-full group-hover:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+                    </div>
+                    
+                    <!-- Ícone com fundo de vidro protetor -->
+                    <div class="relative z-10 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white/20 backdrop-blur-sm rounded-full group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
+                        <iconify-icon icon="ic:baseline-whatsapp" width="22" class="text-white drop-shadow-sm"></iconify-icon>
+                    </div>
+                    
+                    <span class="relative z-10 tracking-wide group-hover:tracking-widest transition-all duration-300">Agendar pelo WhatsApp</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Content: Visual Composition (3D Carousel) -->
+        <div class="flex-1 w-full h-full relative flex items-center justify-center pb-12 pt-6 lg:py-20 z-10 w-full overflow-visible">
+            
+            <!-- 3D Carousel Container (Antigravity) -->
+            <div class="relative w-[75%] max-w-[260px] sm:max-w-[320px] md:max-w-[420px] aspect-[4/5] animate-float-up perspective-[1000px] z-20" style="animation-fill-mode: both;">
+                
+                <!-- Internal styles for 3D Carousel classes -->
+                <style>
+                    .carousel-slide {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 3rem;
+                        overflow: hidden;
+                        border: 6px solid white;
+                        box-shadow: 0 30px 60px rgba(0,42,91,0.25);
+                        transition: all 1s ease-in-out;
+                    }
+                    .slide-front { 
+                        transform: translateX(0) scale(1) translateZ(50px); 
+                        opacity: 1; 
+                        z-index: 30; 
+                        filter: blur(0px); 
+                        cursor: pointer;
+                    }
+                    .slide-back-right { 
+                        transform: translateX(25%) scale(0.85) translateZ(-100px); 
+                        opacity: 0.5; 
+                        z-index: 10; 
+                        filter: blur(4px); 
+                    }
+                    .slide-back-left { 
+                        transform: translateX(-25%) scale(0.85) translateZ(-100px); 
+                        opacity: 0.5; 
+                        z-index: 10; 
+                        filter: blur(4px); 
+                    }
+                </style>
+                
+                <!-- Secondary infinite float for the entire 3D object -->
+                <div class="w-full h-full animate-float-base relative flex items-center justify-center" id="heroCarousel">
+                    
+                    <!-- Slide 1: Vet -->
+                    <div class="carousel-slide slide-front group" data-index="0">
+                        <img src="assets/Imagens/IMG003 VET MULHER.jpeg" alt="Veterinária Super Dog" class="w-full h-full object-cover"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
+                    </div>
+
+                    <!-- Slide 2: Dog Fiapo -->
+                    <div class="carousel-slide slide-back-right group" data-index="1">
+                        <img src="assets/Imagens/IMG001 DOG FIAPO.jpeg" alt="Cão Super Dog" class="w-full h-full object-cover"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-orange/50 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
+                    </div>
+                    
+                    <!-- Slide 3: Cat -->
+                    <div class="carousel-slide slide-back-left group" data-index="2">
+                        <img src="assets/Imagens/IMG005 GATO.jpeg" alt="Gato Super Dog" class="w-full h-full object-cover"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-red/40 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
+                    </div>
+                    
+                </div>
+
+                <!-- Glass Badge overlay (Always in front) -->
+                <div class="absolute -right-6 sm:-right-8 md:-right-10 lg:-right-12 -top-4 md:-top-2 lg:top-[5%] bg-white/80 backdrop-blur-[12px] border border-white/60 rounded-xl md:rounded-2xl p-2.5 md:p-3 shadow-[0_15px_35px_rgba(0,42,91,0.2)] flex items-center gap-2 md:gap-3 z-50 animate-float-badge cursor-default hover:-translate-y-1 transition-transform">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-orange flex items-center justify-center text-white shadow-inner">
+                        <iconify-icon icon="solar:medal-star-bold" width="20" class="md:hidden"></iconify-icon>
+                        <iconify-icon icon="solar:medal-star-bold" width="22" class="hidden md:block"></iconify-icon>
+                    </div>
+                    <div>
+                        <p class="font-montserrat font-extrabold text-navy text-base md:text-lg leading-none tracking-tight">+20 anos</p>
+                        <p class="font-inter font-semibold text-stone-500 text-[8.5px] md:text-[10px] uppercase mt-1 tracking-widest pl-0.5">de história</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animated Scroll Indicators (Walking Paws down) -->
+            <div id="scrollIndicator" class="absolute bottom-1 lg:bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 md:gap-3 z-[100] pb-2 w-full max-w-[200px] transition-opacity duration-300">
+                <style>
+                    .paw-flow-1 { animation-delay: 0s !important; }
+                    .paw-flow-2 { animation-delay: 0.5s !important; }
+                    .paw-flow-3 { animation-delay: 1.0s !important; }
+                </style>
+                <div class="flex flex-col items-center gap-1.5 md:gap-3 w-16">
+                    <div class="animate-[walkPoint_1.5s_ease-in-out_infinite] paw-flow-1 self-start select-none"><iconify-icon icon="fa6-solid:paw" class="text-orange/60 text-base md:text-2xl rotate-180"></iconify-icon></div>
+                    <div class="animate-[walkPoint_1.5s_ease-in-out_infinite] paw-flow-2 self-end select-none"><iconify-icon icon="fa6-solid:paw" class="text-navy/60 text-base md:text-2xl rotate-[195deg]"></iconify-icon></div>
+                    <div class="animate-[walkPoint_1.5s_ease-in-out_infinite] paw-flow-3 self-center select-none"><iconify-icon icon="fa6-solid:paw" class="text-orange/60 text-base md:text-2xl rotate-[165deg]"></iconify-icon></div>
+                </div>
+                <span class="text-navy/80 font-inter font-extrabold text-[9px] md:text-xs uppercase tracking-[0.2em] mt-1 text-center whitespace-nowrap leading-tight animate-pulse w-full">Role para baixo</span>
+            </div>
+            
+            <!-- Vanilla JS to handle Carousel rotation and Scroll Fade -->
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const scrollIndicator = document.getElementById('scrollIndicator');
+                    window.addEventListener('scroll', () => {
+                        if (scrollIndicator) {
+                            const opacity = Math.max(1 - window.scrollY / 200, 0);
+                            scrollIndicator.style.opacity = opacity.toString();
+                            scrollIndicator.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
+                        }
+                    });
+                    const slides = document.querySelectorAll('.carousel-slide');
+                    const states = ['slide-front', 'slide-back-right', 'slide-back-left'];
+                    let currentIndex = 0;
+                    
+                    setInterval(() => {
+                        currentIndex = (currentIndex + 1) % 3;
+                        slides.forEach((slide) => {
+                            const index = parseInt(slide.getAttribute('data-index'));
+                            let newStateIndex = (index - currentIndex + 3) % 3;
+                            
+                            slide.classList.remove(...states);
+                            slide.classList.add(states[newStateIndex]);
+                        });
+                    }, 4000); // Rotates every 4 seconds
+                });
+            </script>
+        </div>
+    </section>
+
+</body>
+</html>
