@@ -27,8 +27,18 @@
                         'carousel-1': 'carousel1 12s infinite ease-in-out',
                         'carousel-2': 'carousel2 12s infinite ease-in-out',
                         'pulse-red': 'pulseRed 2s infinite',
+                        'neon-pulse': 'neonPulse 1.5s ease-in-out infinite',
+                        'outer-glow': 'outerGlow 4s ease-in-out infinite',
                     },
                     keyframes: {
+                        neonPulse: {
+                            '0%, 100%': { opacity: '0.4', boxShadow: '0 0 10px #00f3ff, 0 0 15px #00f3ff' },
+                            '50%': { opacity: '1', boxShadow: '0 0 20px #00f3ff, 0 0 30px #00f3ff' },
+                        },
+                        outerGlow: {
+                            '0%, 100%': { boxShadow: '0 0 30px rgba(255, 140, 0, 0.2)' },
+                            '50%': { boxShadow: '0 0 60px rgba(255, 140, 0, 0.4)' },
+                        },
                         slideInLeft: {
                             '0%': { opacity: '0', transform: 'translateX(-50px)' },
                             '100%': { opacity: '1', transform: 'translateX(0)' },
@@ -364,6 +374,113 @@
             </script>
         </div>
     </section>
+
+    <!-- [Dobra 2] O Vídeo da Evolução (The Vibe Bridge) -->
+    <section id="evolution-video" class="w-full bg-navy py-20 md:py-32 px-5 relative overflow-hidden">
+        
+        <!-- Scattered Texture Layer (Paws, Cats, Stethoscopes & Texts fading in/out) -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <!-- Left side icons -->
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[8%] md:top-[12%] left-[4%] md:left-[8%] text-white/5 text-4xl md:text-5xl rotate-[15deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_1s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute top-[45%] left-[2%] md:left-[5%] text-orange/10 text-5xl md:text-6xl rotate-12 opacity-0 animate-[fadeInOut_12s_ease-in-out_infinite_4s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[25%] md:bottom-[20%] left-[8%] md:left-[10%] text-white/5 text-3xl md:text-4xl rotate-[160deg] opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_3s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:stethoscope" class="absolute top-[5%] left-[45%] text-white/5 text-4xl rotate-45 opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_6s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[35%] left-[30%] text-orange/10 text-3xl rotate-[-20deg] opacity-0 animate-[fadeInOut_7s_ease-in-out_infinite_2s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[40%] left-[20%] text-white/10 text-3xl rotate-[40deg] opacity-0 animate-[fadeInOut_11s_ease-in-out_infinite_7s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[10%] left-[35%] text-orange/15 text-4xl md:text-5xl rotate-[-10deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_5s]"></iconify-icon>
+            
+            <!-- Right side icons -->
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[12%] md:top-[8%] right-[20%] md:right-[25%] text-orange/15 text-3xl md:text-4xl rotate-[220deg] opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_1s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute top-[18%] md:top-[20%] right-[5%] md:right-[8%] text-white/10 text-4xl md:text-5xl -rotate-12 opacity-0 animate-[fadeInOut_11s_ease-in-out_infinite_4s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[45%] right-[10%] md:right-[18%] text-white/10 text-3xl md:text-4xl rotate-[-40deg] opacity-0 animate-[fadeInOut_7s_ease-in-out_infinite_2s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[60%] right-[3%] md:right-[5%] text-orange/15 text-2xl md:text-3xl rotate-45 opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_6s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:stethoscope" class="absolute bottom-[35%] md:bottom-[30%] right-[15%] md:right-[22%] text-orange/15 text-5xl md:text-6xl -rotate-[20deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_3s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute bottom-[10%] md:bottom-[15%] right-[4%] md:right-[5%] text-white/10 text-4xl md:text-5xl rotate-12 opacity-0 animate-[fadeInOut_12s_ease-in-out_infinite_7s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[5%] right-[25%] md:right-[30%] text-white/10 text-4xl md:text-5xl rotate-90 opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_5s]"></iconify-icon>
+            
+            <!-- Playful Texts scattered -->
+            <span class="absolute top-[25%] left-[15%] md:left-[20%] text-white/10 font-montserrat font-extrabold text-xl md:text-2xl -rotate-12 select-none opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_2s]">au-au!</span>
+            <span class="absolute bottom-[45%] md:bottom-[50%] left-[30%] md:left-[38%] text-orange/15 font-montserrat font-extrabold text-lg md:text-xl rotate-12 select-none opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_6s]">miauuu!</span>
+            <span class="absolute top-[50%] md:top-[60%] right-[25%] md:right-[12%] text-white/10 font-montserrat font-extrabold text-2xl md:text-3xl rotate-[20deg] select-none opacity-0 animate-[fadeInOut_11s_ease-in-out_infinite_3s]">au-au!</span>
+            <span class="absolute bottom-[25%] md:bottom-[20%] right-[40%] md:right-[35%] text-orange/15 font-montserrat font-extrabold text-xl md:text-2xl -rotate-[15deg] select-none opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_5s]">miauuu!</span>
+        </div>
+
+        <div id="reveal-container" class="max-w-5xl mx-auto relative opacity-0 translate-y-20 transition-all duration-1000 ease-out">
+            
+            <!-- Video Container with Glow -->
+            <div class="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,42,91,0.5)] animate-outer-glow group">
+                <!-- Main Video -->
+                <video class="w-full aspect-video object-cover" autoplay muted loop playsinline>
+                    <source src="assets/Video/VD001 SUPERDOG.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
+                <!-- Gradient Scrim for readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-navy/40 pointer-events-none z-10"></div>
+            </div>
+
+            <!-- Overlay outside overflow-hidden to allow half-out logos -->
+            <div class="absolute inset-0 flex items-center justify-between pointer-events-none z-20">
+                
+                <!-- Logo Pet Shop (Left - Half out on desktop, at margin on mobile) -->
+                <div class="absolute left-0 -translate-x-0 md:-translate-x-1/2 flex flex-col items-center transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="w-20 md:w-48 h-20 md:h-48 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.png" alt="Pet Shop" class="w-[85%] h-auto drop-shadow-xl brightness-110"/>
+                    </div>
+                </div>
+
+                <!-- Pulsing Neon Line (Moved to bridge the gap) -->
+                <div class="absolute inset-x-0 mx-auto w-[40%] md:w-[60%] h-[2px] md:h-[3px] opacity-40">
+                    <div class="absolute inset-0 bg-cyan-400 rounded-full animate-neon-pulse shadow-[0_0_15px_#22d3ee]"></div>
+                    <div class="absolute inset-0 bg-white/50 rounded-full animate-pulse"></div>
+                </div>
+
+                <!-- Logo Clínica (Right - Half out on desktop, at margin on mobile) -->
+                <div class="absolute right-0 translate-x-0 md:translate-x-1/2 flex flex-col items-center transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="w-20 md:w-48 h-20 md:h-48 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.png" alt="Clínica" class="w-[85%] h-auto drop-shadow-xl brightness-110"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copy Text -->
+            <div class="mt-12 md:mt-16 text-center opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
+                <h2 class="text-2xl md:text-4xl lg:text-5xl font-montserrat font-extrabold text-white leading-tight max-w-4xl mx-auto drop-shadow-lg">
+                    "Nossa história <span class="text-orange">voa alto</span>. Do banho e tosa à clínica especializada, evoluímos para ser o porto seguro do seu melhor amigo."
+                </h2>
+                <div class="mt-6 flex justify-center gap-2">
+                    <div class="w-12 h-1 bg-orange rounded-full"></div>
+                    <div class="w-4 h-1 bg-white/30 rounded-full"></div>
+                    <div class="w-4 h-1 bg-white/30 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Intersection Observer for Smooth Reveal -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const revealContainer = document.getElementById('reveal-container');
+            if (revealContainer) {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px"
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.remove('opacity-0', 'translate-y-20');
+                            entry.target.classList.add('opacity-100', 'translate-y-0');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                observer.observe(revealContainer);
+            }
+        });
+    </script>
 
 </body>
 </html>
