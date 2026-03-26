@@ -106,13 +106,12 @@
         }
     </script>
     <!-- Iconify -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <style>
-        .font-playfair { font-family: 'Playfair Display', serif; }
         .bg-grain {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
         }
@@ -500,14 +499,14 @@
         <div class="flex items-center gap-4 md:gap-10 pl-2">
             <!-- Clínica (Maior) usando scale para não esticar a altura do cabeçalho -->
             <div class="h-12 md:h-16 flex items-center justify-center">
-                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.png" alt="Super Dog Clínica" class="h-full w-auto object-contain mix-blend-multiply origin-left scale-[1.85] md:scale-[2.3] transform hover:scale-[2.4] transition-transform"/>
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.webp" alt="Super Dog Clínica" class="h-full w-auto object-contain mix-blend-multiply origin-left scale-[1.85] md:scale-[2.3] transform hover:scale-[2.4] transition-transform" decoding="async"/>
             </div>
             
             <div class="h-8 md:h-10 w-[2px] bg-navy/10 rounded-full ml-4 md:ml-8"></div>
             
             <!-- Pet Shop (Menor) -->
             <div class="h-10 md:h-12 flex items-center justify-center">
-                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.png" alt="Super Dog Pet Shop" class="h-full w-auto object-contain mix-blend-multiply scale-[1.6] md:scale-[1.8] transform hover:scale-[1.9] transition-transform"/>
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.webp" alt="Super Dog Pet Shop" class="h-full w-auto object-contain mix-blend-multiply scale-[1.6] md:scale-[1.8] transform hover:scale-[1.9] transition-transform" decoding="async"/>
             </div>
         </div>
         
@@ -560,12 +559,12 @@
             <div class="inline-flex items-center gap-2 md:gap-3 px-3 py-1 md:px-5 md:py-2 rounded-full border border-white/70 bg-white/50 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,42,91,0.05)] mb-4 lg:mb-6 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards] hover:border-orange/30 hover:bg-white/70 transition-all duration-300 group cursor-default mt-0 overflow-hidden h-7 md:h-10 max-w-full">
                 <span class="text-[9px] md:text-[13px] font-inter font-extrabold text-navy uppercase tracking-widest pt-0.5 whitespace-nowrap">Aceitamos Convênio:</span>
                 <div class="h-10 md:h-20 w-22 md:w-32 flex items-center justify-start pointer-events-none">
-                    <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Convênio Pet Love" class="w-full h-full object-contain drop-shadow-sm transform scale-[1.6] md:scale-[1.9] transform-gpu origin-center group-hover:scale-[2.1] transition-transform duration-500"/>
+                    <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.webp" alt="Convênio Pet Love" class="w-full h-full object-contain drop-shadow-sm transform scale-[1.6] md:scale-[1.9] transform-gpu origin-center group-hover:scale-[2.1] transition-transform duration-500" decoding="async"/>
                 </div>
             </div>
             
             <h1 class="text-[1.7rem] leading-[1.1] md:text-4xl lg:text-5xl font-montserrat text-navy mb-4 lg:mb-6 md:leading-[1.15] tracking-tight drop-shadow-md max-w-[650px] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
-                Amamos o seu pet <span class="font-playfair font-medium italic text-stone-600">como você ama</span>, com a confiança de quem cuida dos Pets do Barreiro <span class="font-extrabold text-orange relative inline-block group mt-1 lg:mt-3">há 20 anos<span class="absolute -bottom-1 left-0 w-full h-1.5 md:h-2 bg-orange/20 rounded-full group-hover:bg-orange/40 transition-colors duration-500"></span></span>.
+                Amamos o seu pet <span class="font-medium italic text-stone-600">como você ama</span>, com a confiança de quem cuida dos Pets do Barreiro <span class="font-extrabold text-orange relative inline-block group mt-1 lg:mt-3">há 20 anos<span class="absolute -bottom-1 left-0 w-full h-1.5 md:h-2 bg-orange/20 rounded-full group-hover:bg-orange/40 transition-colors duration-500"></span></span>.
             </h1>
             
             <p class="text-sm md:text-lg text-stone-600 font-inter font-normal max-w-lg leading-relaxed mb-6 lg:mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
@@ -638,19 +637,19 @@
                     
                     <!-- Slide 1: Vet -->
                     <div class="carousel-slide slide-front group" data-index="0">
-                        <img src="assets/Imagens/IMG003 VET MULHER.jpeg" alt="Veterinária Super Dog" class="w-full h-full object-cover"/>
+                        <img src="assets/Imagens/IMG003 VET MULHER.webp" alt="Veterinária Super Dog" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
                     </div>
 
                     <!-- Slide 2: Dog Fiapo -->
                     <div class="carousel-slide slide-back-right group" data-index="1">
-                        <img src="assets/Imagens/IMG001 DOG FIAPO.jpeg" alt="Cão Super Dog" class="w-full h-full object-cover"/>
+                        <img src="assets/Imagens/IMG001 DOG FIAPO.webp" alt="Cão Super Dog" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-orange/50 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
                     </div>
                     
                     <!-- Slide 3: Cat -->
                     <div class="carousel-slide slide-back-left group" data-index="2">
-                        <img src="assets/Imagens/IMG005 GATO.jpeg" alt="Gato Super Dog" class="w-full h-full object-cover"/>
+                        <img src="assets/Imagens/IMG005 GATO.webp" alt="Gato Super Dog" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-red/40 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
                     </div>
                     
@@ -694,7 +693,7 @@
                             scrollIndicator.style.opacity = opacity.toString();
                             scrollIndicator.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
                         }
-                    });
+                    }, { passive: true });
 
                     // Premium Parallax Interaction (Desktop only)
                     const heroMain = document.getElementById('hero-main');
@@ -778,7 +777,7 @@
             <!-- Video Container with Glow -->
             <div class="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,42,91,0.5)] animate-outer-glow group">
                 <!-- Main Video -->
-                <video class="w-full aspect-video object-cover" autoplay muted loop playsinline>
+                <video class="w-full aspect-video object-cover" autoplay muted loop playsinline poster="assets/Imagens/poster_video.webp">
                     <source src="assets/Video/VD001 SUPERDOG.mp4" type="video/mp4">
                     Seu navegador não suporta vídeos.
                 </video>
@@ -792,7 +791,7 @@
                 <!-- Logo Pet Shop (Left - Half out on desktop, at margin on mobile) -->
                 <div class="absolute left-0 -translate-x-0 md:-translate-x-1/2 flex flex-col items-center transform group-hover:scale-110 transition-transform duration-500">
                     <div class="w-20 md:w-48 h-20 md:h-48 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
-                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.png" alt="Pet Shop" class="w-[85%] h-auto drop-shadow-xl brightness-110"/>
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.webp" alt="Pet Shop" class="w-[85%] h-auto drop-shadow-xl brightness-110" loading="lazy" decoding="async"/>
                     </div>
                 </div>
 
@@ -805,7 +804,7 @@
                 <!-- Logo Clínica (Right - Half out on desktop, at margin on mobile) -->
                 <div class="absolute right-0 translate-x-0 md:translate-x-1/2 flex flex-col items-center transform group-hover:scale-110 transition-transform duration-500">
                     <div class="w-20 md:w-48 h-20 md:h-48 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
-                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.png" alt="Clínica" class="w-[85%] h-auto drop-shadow-xl brightness-110"/>
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.webp" alt="Clínica" class="w-[85%] h-auto drop-shadow-xl brightness-110" loading="lazy" decoding="async"/>
                     </div>
                 </div>
             </div>
@@ -851,7 +850,7 @@
 
             <!-- Mosaico Banner (Full Format, No Effect) -->
             <div class="max-w-6xl mx-auto mb-20 md:mb-32 px-4 reveal-on-scroll">
-                <img id="mosaico-full" src="assets/Imagens/IMG006 MOSAICO HORIZONTAL.jpeg" alt="Super Dog Mosaico Completo" class="w-full h-auto rounded-[2rem] md:rounded-[4rem] shadow-[0_25px_60px_rgba(0,42,91,0.15)] border border-stone-100"/>
+                <img id="mosaico-full" src="assets/Imagens/IMG006 MOSAICO HORIZONTAL.webp" alt="Super Dog Mosaico Completo" class="w-full h-auto rounded-[2rem] md:rounded-[4rem] shadow-[0_25px_60px_rgba(0,42,91,0.15)] border border-stone-100" loading="lazy" decoding="async"/>
             </div>
 
             <!-- 2. The Service Carousel (3D Antigravity Style) -->
@@ -1014,7 +1013,7 @@
         </div>
     </section>
     <!-- [Dobra 4] Prova Social Dinâmica -->
-    <section id="social-proof" class="social-proof-section relative w-full bg-[#002A5B] z-20">
+    <section id="social-proof" class="social-proof-section relative w-full bg-[#002A5B] z-20" style="content-visibility: auto; contain-intrinsic-size: 500px;">
         <!-- Scattered Texture Layer (Replicated from Dobra 2 for Consistency) -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
             <!-- Left side icons -->
@@ -1098,13 +1097,13 @@
             
             <!-- Layer 2: Selo Flutuante -->
             <div class="selo-orbit hidden lg:block">
-                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Parceiro Pet Love" class="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"/>
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.webp" alt="Parceiro Pet Love" class="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" loading="lazy" decoding="async"/>
             </div>
         </div>
     </section>
 
     <!-- [Dobra 6] Localização e Conversão Final (Light Mode) -->
-    <section id="location-section" class="relative w-full pt-10 md:pt-16 pb-24 md:pb-32 bg-stone-50 overflow-hidden z-30">
+    <section id="location-section" class="relative w-full pt-10 md:pt-16 pb-24 md:pb-32 bg-stone-50 overflow-hidden z-30" style="content-visibility: auto; contain-intrinsic-size: 500px;">
         
         <!-- Scattered Texture Layer (Consistency with Dobras 1, 2, 4) -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -1130,11 +1129,15 @@
                 
                 <!-- Combined Logos (15px Packing from Top) -->
                 <div class="relative inline-block pt-[15px] pb-4">
-                    <div class="flex items-center gap-6 md:gap-12 relative">
-                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.png" alt="Super Dog Logo" class="h-28 md:h-44 w-auto object-contain mix-blend-multiply opacity-90"/>
-                        <div class="h-20 md:h-28 w-[1.5px] bg-navy/10"></div>
-                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.png" alt="Pet Shop Logo" class="h-24 md:h-36 w-auto object-contain mix-blend-multiply opacity-90"/>
+                 <div class="flex items-center gap-4 md:gap-8 translate-y-2">
+                    <div class="h-28 md:h-44 w-auto flex items-center">
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.webp" alt="Super Dog Logo" class="h-full w-auto object-contain mix-blend-multiply opacity-90" loading="lazy" decoding="async"/>
                     </div>
+                    <div class="h-16 md:h-24 w-[2px] bg-navy/10 rounded-full"></div>
+                    <div class="h-24 md:h-36 w-auto flex items-center">
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.webp" alt="Pet Shop Logo" class="h-full w-auto object-contain mix-blend-multiply opacity-90" loading="lazy" decoding="async"/>
+                    </div>
+                </div>
                 </div>
 
                 <!-- Headline & Subhead (Single Line, 10px Padding) -->
@@ -1238,7 +1241,7 @@
     <footer class="bg-navy py-12 border-t border-white/5 z-40 relative">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-4">
-                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.png" alt="Super Dog Logo" class="h-24 opacity-60 brightness-0 invert"/>
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.webp" alt="Super Dog Logo" class="h-24 opacity-60 brightness-0 invert" loading="lazy" decoding="async"/>
                 <p class="text-white text-xs font-inter uppercase tracking-widest font-medium">© 2026 Super Dog Clínica Veterinária. Todos os direitos reservados.</p>
             </div>
             <div class="flex items-center gap-1.5">
@@ -1381,7 +1384,7 @@
                     
                     const sourceLogo = review.source === 'google' 
                         ? `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-2 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><iconify-icon icon="logos:google-icon" width="22"></iconify-icon></div>`
-                        : `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Petlove" class="w-full h-full object-contain"/></div>`;
+                        : `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.webp" alt="Petlove" class="w-full h-full object-contain" loading="lazy" decoding="async"/></div>`;
 
                     wrapper.innerHTML = `
                         <div class="review-card">
