@@ -3,7 +3,62 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Super Dog - A Medicina que seu pet merece</title>
+    <title>Clínica Veterinária no Barreiro BH | Super Dog Itaipu: 20 Anos de Cuidado</title>
+    <meta name="description" content="Procurando uma Clínica Veterinária no Barreiro? A Super Dog Itaipu oferece consultas, vacinas e exames com quem cuida da região há 20 anos. Veterinário perto de você com nota 4.8. Aceitamos Petlove!"/>
+    <meta name="keywords" content="Clínica Veterinária, Clínica Veterinária Barreiro, Clínica Veterinária Itaipu, Superdog Barreiro, Superdog Itaipu, Veterinário perto de mim, Hospital Veterinário Barreiro"/>
+    
+    <!-- Local SEO & GEO Tags -->
+    <meta name="geo.region" content="BR-MG" />
+    <meta name="geo.placename" content="Belo Horizonte" />
+    <meta name="geo.position" content="-19.9866;-44.0201" />
+    <meta name="ICBM" content="-19.9866, -44.0201" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://superdog.com.br/"/>
+    <meta property="og:title" content="Super Dog Barreiro - Clínica Veterinária no Itaipu"/>
+    <meta property="og:description" content="Referência em cuidado animal no Barreiro e Itaipu. Agende sua consulta agora!"/>
+    <meta property="og:image" content="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA.webp"/>
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VeterinaryCare",
+      "name": "Super Dog Clínica Veterinária e Pet Shop",
+      "image": "assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA.webp",
+      "@id": "https://superdog.com.br/#business",
+      "url": "https://superdog.com.br/",
+      "telephone": "+5531988579302",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Waldyr Soeiro Emrich",
+        "addressLocality": "Belo Horizonte",
+        "addressRegion": "MG",
+        "postalCode": "30620-430",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -19.986644,
+        "longitude": -44.020123
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "08:30",
+          "closes": "18:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "524"
+      }
+    }
+    </script>
     <!-- Tailwind CDN for arbitrary classes to work without build step -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -564,11 +619,11 @@
             </div>
             
             <h1 class="text-[1.7rem] leading-[1.1] md:text-4xl lg:text-5xl font-montserrat text-navy mb-4 lg:mb-6 md:leading-[1.15] tracking-tight drop-shadow-md max-w-[650px] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
-                Amamos o seu pet <span class="font-medium italic text-stone-600">como você ama</span>, com a confiança de quem cuida dos Pets do Barreiro <span class="font-extrabold text-orange relative inline-block group mt-1 lg:mt-3">há 20 anos<span class="absolute -bottom-1 left-0 w-full h-1.5 md:h-2 bg-orange/20 rounded-full group-hover:bg-orange/40 transition-colors duration-500"></span></span>.
+                A <span class="font-extrabold text-orange">Clínica Veterinária</span> no Barreiro que ama o seu pet <span class="font-medium italic text-stone-600">como você ama</span>.
             </h1>
             
             <p class="text-sm md:text-lg text-stone-600 font-inter font-normal max-w-lg leading-relaxed mb-6 lg:mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
-                Unindo a tradição da <strong class="text-navy font-bold">SuperDog</strong> à dedicação da nossa Clínica Veterinária. Se você procura um veterinário no Barreiro que já conhece a história do seu pet e trata cada amigo como parte da família.
+                Se você busca um <strong class="text-navy font-bold">veterinário perto de você</strong> no Itaipu, encontrou a confiança da Super Dog. Unimos 20 anos de tradição ao cuidado médico especializado que seu melhor amigo merece.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto mt-2 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
@@ -588,7 +643,7 @@
                         <iconify-icon icon="ic:baseline-whatsapp" width="18" class="text-white drop-shadow-sm"></iconify-icon>
                     </div>
                     
-                    <span class="relative z-10 tracking-wide group-hover:tracking-widest transition-all duration-300">Agendar pelo WhatsApp</span>
+                    <span class="relative z-10 tracking-wide group-hover:tracking-widest transition-all duration-300">Agendar Consulta via WhatsApp</span>
                 </a>
             </div>
         </div>
@@ -785,34 +840,11 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-navy/40 pointer-events-none z-10"></div>
             </div>
 
-            <!-- Overlay outside overflow-hidden to allow half-out logos -->
-            <div class="absolute inset-0 flex items-center justify-between pointer-events-none z-20">
-                
-                <!-- Logo Pet Shop (Left - Half out on desktop, at margin on mobile) -->
-                <div class="absolute left-0 -translate-x-0 md:-translate-x-1/2 flex flex-col items-center transform group-hover:scale-110 transition-transform duration-500">
-                    <div class="w-20 md:w-48 h-20 md:h-48 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
-                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.webp" alt="Pet Shop" class="w-[85%] h-auto drop-shadow-xl brightness-110" loading="lazy" decoding="async"/>
-                    </div>
-                </div>
-
-                <!-- Pulsing Neon Line (Moved to bridge the gap) -->
-                <div class="absolute inset-x-0 mx-auto w-[40%] md:w-[60%] h-[2px] md:h-[3px] opacity-40">
-                    <div class="absolute inset-0 bg-cyan-400 rounded-full animate-neon-pulse shadow-[0_0_15px_#22d3ee]"></div>
-                    <div class="absolute inset-0 bg-white/50 rounded-full animate-pulse"></div>
-                </div>
-
-                <!-- Logo Clínica (Right - Half out on desktop, at margin on mobile) -->
-                <div class="absolute right-0 translate-x-0 md:translate-x-1/2 flex flex-col items-center transform group-hover:scale-110 transition-transform duration-500">
-                    <div class="w-20 md:w-48 h-20 md:h-48 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
-                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.webp" alt="Clínica" class="w-[85%] h-auto drop-shadow-xl brightness-110" loading="lazy" decoding="async"/>
-                    </div>
-                </div>
-            </div>
 
             <!-- Copy Text -->
             <div class="mt-12 md:mt-16 text-center opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
-                <h2 class="text-2xl md:text-4xl lg:text-5xl font-montserrat font-extrabold text-white leading-tight max-w-4xl mx-auto drop-shadow-lg">
-                    "Nossa história <span class="text-orange">voa alto</span>. Do banho e tosa à clínica especializada, evoluímos para ser o porto seguro do seu melhor amigo."
+                <h2 class="text-xl md:text-3xl lg:text-4xl font-montserrat font-extrabold text-white leading-tight max-w-4xl mx-auto drop-shadow-lg">
+                    "Nossa história <span class="text-orange">voa alto</span>. Do Pet Shop tradicional à <strong class="text-orange">Clínica Veterinária especializada no Barreiro</strong>, evoluímos para ser o porto seguro do seu melhor amigo no Itaipu."
                 </h2>
                 <div class="mt-6 flex justify-center gap-2">
                     <div class="w-12 h-1 bg-orange rounded-full"></div>
@@ -841,16 +873,16 @@
             <div class="text-center mb-12">
                 <span class="text-orange font-montserrat font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block animate-[fadeInUp_0.8s_ease-out]">"A experiência de quem conhece cada detalhe do seu amigo."</span>
                 <h2 class="text-2xl md:text-4xl lg:text-5xl font-montserrat font-black text-navy leading-[1.15] mb-6">
-                    Cuidado Completo e <span class="text-orange">Humanizado</span> no Barreiro
+                    Sua <span class="text-orange">Clínica Veterinária</span> no Barreiro e Itaipu: Cuidado Completo
                 </h2>
                 <p class="text-navy/60 font-inter text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                    Da rotina preventiva aos momentos de urgência, nossa clínica veterinária está pronta para oferecer o melhor diagnóstico no Itaipu.
+                    Da rotina preventiva aos momentos de urgência, a <strong class="text-navy">Super Dog Barreiro</strong> está pronta para oferecer o melhor diagnóstico perto de você.
                 </p>
             </div>
 
             <!-- Mosaico Banner (Full Format, No Effect) -->
             <div class="max-w-6xl mx-auto mb-20 md:mb-32 px-4 reveal-on-scroll">
-                <img id="mosaico-full" src="assets/Imagens/IMG006 MOSAICO HORIZONTAL.webp" alt="Super Dog Mosaico Completo" class="w-full h-auto rounded-[2rem] md:rounded-[4rem] shadow-[0_25px_60px_rgba(0,42,91,0.15)] border border-stone-100" loading="lazy" decoding="async"/>
+                <img id="mosaico-full" src="assets/Imagens/IMG006 MOSAICO HORIZONTAL.webp" alt="Especialidades Clínica Veterinária Barreiro Super Dog" class="w-full h-auto rounded-[2rem] md:rounded-[4rem] shadow-[0_25px_60px_rgba(0,42,91,0.15)] border border-stone-100" loading="lazy" decoding="async"/>
             </div>
 
             <!-- 2. The Service Carousel (3D Antigravity Style) -->
@@ -872,7 +904,7 @@
                                     </div>
                                     <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4 service-title">Consultas e Urgências</h3>
                                     <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium service-description">
-                                        Atendimento imediato em horário comercial para consultas de rotina ou urgências. Diagnósticos precisos para sua tranquilidade.
+                                        Sua melhor opção de <span class="text-navy font-bold">veterinário no Barreiro</span> para consultas de rotina ou urgências em horário comercial. Diagnósticos precisos com quem entende do assunto.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
                                         <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-visible group/btn border border-white/20">
@@ -988,7 +1020,7 @@
                                     </div>
                                     <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4 service-title">Petlove Oficial</h3>
                                     <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium service-description">
-                                        Use seu plano de saúde pet aqui! Somos parceiros oficiais para garantir economia e o melhor atendimento.
+                                        Buscando <span class="text-navy font-bold">Clínica Veterinária Petlove no Barreiro</span>? Somos parceiros oficiais para garantir economia com o plano de saúde que você já tem.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
                                         <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-visible group/btn border border-white/20">
@@ -1048,11 +1080,11 @@
             <!-- 2. Copywriting Estratégico -->
             <div class="text-center mb-12 max-w-3xl opacity-0 translate-y-10 transition-all duration-1000" id="social-copy-container">
                 <h2 class="text-3xl md:text-5xl lg:text-6xl font-montserrat font-black text-white mb-6 tracking-tight drop-shadow-lg">
-                    A Voz do Barreiro: <span class="text-orange">Histórias Reais</span> de Carinho e Confiança.
+                    Referência em <span class="text-orange">Clínica Veterinária</span> no Barreiro: O que dizem nossos vizinhos.
                 </h2>
                 <div class="h-1.5 w-24 bg-orange rounded-full mx-auto mb-8 shadow-[0_0_15px_#FF8C00]"></div>
                 <p class="text-base md:text-xl text-white/80 font-inter font-medium leading-relaxed">
-                    Veja por que somos a clínica veterinária no Barreiro com nota 4.8 no Google. Depoimentos reais de quem confia na SuperDog.
+                    Com nota 4.8 no Google Meus Negócios, a Super Dog é a escolha de quem não abre mão de carinho e competência técnica no Itaipu.
                 </p>
             </div>
 
@@ -1131,20 +1163,20 @@
                 <div class="relative inline-block pt-[15px] pb-4">
                  <div class="flex items-center gap-4 md:gap-8 translate-y-2">
                     <div class="h-28 md:h-44 w-auto flex items-center">
-                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.webp" alt="Super Dog Logo" class="h-full w-auto object-contain mix-blend-multiply opacity-90" loading="lazy" decoding="async"/>
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.webp" alt="Clínica Veterinária Barreiro" class="h-full w-auto object-contain mix-blend-multiply opacity-90" loading="lazy" decoding="async"/>
                     </div>
                     <div class="h-16 md:h-24 w-[2px] bg-navy/10 rounded-full"></div>
                     <div class="h-24 md:h-36 w-auto flex items-center">
-                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.webp" alt="Pet Shop Logo" class="h-full w-auto object-contain mix-blend-multiply opacity-90" loading="lazy" decoding="async"/>
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.webp" alt="Pet Shop Barreiro" class="h-full w-auto object-contain mix-blend-multiply opacity-90" loading="lazy" decoding="async"/>
                     </div>
                 </div>
                 </div>
 
                 <!-- Headline & Subhead (Single Line, 10px Padding) -->
                 <div class="py-2.5 w-full">
-                    <h1 class="text-lg md:text-2xl lg:text-3xl font-montserrat font-extrabold text-navy whitespace-nowrap overflow-hidden text-ellipsis">
-                        Estamos no <span class="text-orange">Itaipu</span>, pertinho de você.
-                    </h1>
+                    <h2 class="text-lg md:text-2xl lg:text-3xl font-montserrat font-extrabold text-navy whitespace-nowrap overflow-hidden text-ellipsis">
+                    Clínica Veterinária no Barreiro - Unidade Itaipu
+                </h2>
                     <p class="text-stone-500 font-inter text-sm md:text-base mt-1">
                         Agende agora e garanta o melhor cuidado para o seu amigo.
                     </p>
@@ -1224,12 +1256,14 @@
                     <!-- SEO Address (Now Below Map) -->
                     <div class="text-center lg:text-left group w-full pt-4">
                         <address class="not-italic text-navy/90 font-montserrat font-extrabold text-sm tracking-wide mb-2 group-hover:text-orange transition-colors">
-                            R. Taboão da Serra, 412 - Itaipu, Belo Horizonte
+                            R. Taboão da Serra, 412 - Itaipu, Belo Horizonte (Perto de você no Barreiro).
                         </address>
-                        <div class="flex items-center justify-center lg:justify-start gap-3 text-stone-400 text-[11px] font-bold uppercase tracking-widest">
-                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:parking-bold" class="text-orange"></iconify-icon> Estacionamento Fácil</span>
+                        <div class="flex items-center justify-center lg:justify-start gap-3 text-stone-400 text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:parking-bold" class="text-orange"></iconify-icon> Fácil de estacionar no Itaipu</span>
                             <span class="w-1.5 h-1.5 rounded-full bg-stone-200"></span>
                             <span class="flex items-center gap-1.5"><iconify-icon icon="solar:coffee-bold" class="text-orange"></iconify-icon> Café Quentinho</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-stone-200"></span>
+                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:heart-bold" class="text-orange"></iconify-icon> Atendimento Humanizado</span>
                         </div>
                     </div>
                 </div>
