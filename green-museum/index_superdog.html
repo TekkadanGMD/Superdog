@@ -162,18 +162,20 @@
 
         /* Mobile Adjustment */
         @media (max-width: 768px) {
-            .carousel-3d-stage { height: 500px; }
+            .carousel-3d-stage { height: 550px; }
             .carousel-3d-item {
-                width: 280px;
-                height: 420px;
-                margin-left: -140px;
-                margin-top: -210px;
+                width: 300px;
+                height: 480px;
+                margin-left: -150px;
+                margin-top: -240px;
             }
-            .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
-            .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(300px); }
-            .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(300px); }
-            .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(300px); }
-            .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(300px); }
+            .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(320px); }
+            .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(320px); }
+            .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(320px); }
+            .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(320px); }
+            .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(320px); }
+            
+            .glass-glow-card { padding: 2rem 1.5rem; }
         }
 
         /* Glass Glow Card & Interactions */
@@ -636,17 +638,20 @@
                         <!-- Card 1: Consultas -->
                         <div class="carousel-3d-item">
                             <div class="glass-glow-card">
-                                <div class="tilt-inner flex flex-col items-center">
-                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-navy/5 rounded-3xl text-navy service-icon swing">
-                                        <iconify-icon icon="solar:stethoscope-bold-duotone" width="56"></iconify-icon>
+                                <div class="tilt-inner flex flex-col items-center h-full">
+                                    <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-navy/5 rounded-3xl text-navy service-icon swing">
+                                        <iconify-icon icon="solar:stethoscope-bold-duotone" width="48" class="md:hidden"></iconify-icon>
+                                        <iconify-icon icon="solar:stethoscope-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Consultas e Urgências</h3>
-                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Consultas e Urgências</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
                                         Atendimento imediato em horário comercial para consultas de rotina ou urgências. Diagnósticos precisos para sua tranquilidade.
                                     </p>
-                                    <div class="mt-8">
-                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-orange font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
-                                            Agendar Consulta <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                    <div class="mt-auto w-full pt-6">
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
+                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
+                                            <span class="relative z-10">Agendar Consulta</span>
                                         </a>
                                     </div>
                                 </div>
@@ -656,17 +661,20 @@
                         <!-- Card 2: Vacinas -->
                         <div class="carousel-3d-item">
                             <div class="glass-glow-card">
-                                <div class="tilt-inner flex flex-col items-center">
-                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-orange/10 rounded-3xl text-orange service-icon">
-                                        <iconify-icon icon="solar:syringe-bold-duotone" width="56"></iconify-icon>
+                                <div class="tilt-inner flex flex-col items-center h-full">
+                                    <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-orange/10 rounded-3xl text-orange service-icon">
+                                        <iconify-icon icon="solar:syringe-bold-duotone" width="48" class="md:hidden"></iconify-icon>
+                                        <iconify-icon icon="solar:syringe-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Vacinas Importadas</h3>
-                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Vacinas Importadas</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
                                         Protocolo completo de imunização (V10, Raiva, Gripe) com as melhores marcas mundiais para proteção total.
                                     </p>
-                                    <div class="mt-8">
-                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-orange font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
-                                            Ver Protocolo <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                    <div class="mt-auto w-full pt-6">
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
+                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
+                                            <span class="relative z-10">Ver Protocolo</span>
                                         </a>
                                     </div>
                                 </div>
@@ -676,17 +684,20 @@
                         <!-- Card 3: Castração -->
                         <div class="carousel-3d-item">
                             <div class="glass-glow-card">
-                                <div class="tilt-inner flex flex-col items-center">
-                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-navy/5 rounded-3xl text-navy service-icon">
-                                        <iconify-icon icon="solar:medical-kit-bold-duotone" width="56"></iconify-icon>
+                                <div class="tilt-inner flex flex-col items-center h-full">
+                                    <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-navy/5 rounded-3xl text-navy service-icon">
+                                        <iconify-icon icon="solar:medical-kit-bold-duotone" width="48" class="md:hidden"></iconify-icon>
+                                        <iconify-icon icon="solar:medical-kit-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Castração e Cirurgias</h3>
-                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Castração e Cirurgias</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
                                         Procedimentos seguros com anestesia monitorada e foco total no conforto e na recuperação rápida do pet.
                                     </p>
-                                    <div class="mt-8">
-                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-orange font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
-                                            Saber Mais <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                    <div class="mt-auto w-full pt-6">
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
+                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
+                                            <span class="relative z-10">Saber Mais</span>
                                         </a>
                                     </div>
                                 </div>
@@ -696,17 +707,20 @@
                         <!-- Card 4: Exames -->
                         <div class="carousel-3d-item">
                             <div class="glass-glow-card">
-                                <div class="tilt-inner flex flex-col items-center">
-                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-orange/5 rounded-3xl text-orange service-icon">
-                                        <iconify-icon icon="solar:magnifer-zoom-in-bold-duotone" width="56"></iconify-icon>
+                                <div class="tilt-inner flex flex-col items-center h-full">
+                                    <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-orange/5 rounded-3xl text-orange service-icon">
+                                        <iconify-icon icon="solar:magnifer-zoom-in-bold-duotone" width="48" class="md:hidden"></iconify-icon>
+                                        <iconify-icon icon="solar:magnifer-zoom-in-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Exames e Diagnósticos</h3>
-                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Exames e Diagnósticos</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
                                         Facilitamos seu dia: exames laboratoriais e parcerias para Raio-X e Ultrassom com agendamento direto na clínica.
                                     </p>
-                                    <div class="mt-8">
-                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-orange font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
-                                            Agendar Exame <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                    <div class="mt-auto w-full pt-6">
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
+                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
+                                            <span class="relative z-10">Agendar Exame</span>
                                         </a>
                                     </div>
                                 </div>
@@ -716,17 +730,20 @@
                         <!-- Card 5: Petlove -->
                         <div class="carousel-3d-item">
                             <div class="glass-glow-card">
-                                <div class="tilt-inner flex flex-col items-center">
-                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-[#00AE9D]/10 rounded-3xl text-[#00AE9D] service-icon">
-                                        <iconify-icon icon="solar:shield-check-bold-duotone" width="56"></iconify-icon>
+                                <div class="tilt-inner flex flex-col items-center h-full">
+                                    <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-[#00AE9D]/10 rounded-3xl text-[#00AE9D] service-icon">
+                                        <iconify-icon icon="solar:shield-check-bold-duotone" width="48" class="md:hidden"></iconify-icon>
+                                        <iconify-icon icon="solar:shield-check-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Petlove</h3>
-                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Petlove</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
                                         Use seu plano de saúde pet aqui! Somos parceiros oficiais para garantir economia e o melhor atendimento.
                                     </p>
-                                    <div class="mt-8">
-                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-[#00AE9D] font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
-                                            Ver Convênios <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                    <div class="mt-auto w-full pt-6">
+                                        <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.4)] overflow-hidden group/btn border border-white/20">
+                                            <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                            <iconify-icon icon="ic:baseline-whatsapp" width="18" class="relative z-10"></iconify-icon>
+                                            <span class="relative z-10">Ver Convênios</span>
                                         </a>
                                     </div>
                                 </div>
