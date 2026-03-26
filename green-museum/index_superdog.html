@@ -1054,23 +1054,39 @@
 
             startAutoRotate();
 
-            // 4. Google Reviews Logic (Horizontal Carousel)
+            // 4. Social Proof Reviews Logic (Google + Petlove)
             const track = document.getElementById('reviews-track');
             let reviewIndex = 0;
-            const API_KEY = 'SUA_CHAVE_API'; 
+            let reviewInterval;
 
-            const mockReviews = [
-                { author: "Xtez games", date: "há 2 meses", text: "Tinha perdido a esperança sobre meu cachorro, levei na super dog, fez consulta, passou os medicamentos, hoje ele esta ótimo." },
-                { author: "Luciana Patricia", date: "há 2 meses", text: "Alguns anos eu levo minhas pts, super confio no trabalho deles. Sempre minhas cachorrinhas voltam super feliz e bem limpinhas e cheirosas. eu super indico" },
-                { author: "FRANZ ROGÉRIO", date: "há 1 mês", text: "Atendimento excelente, sempre atenciosos preço Justo e amor no que faz. Super recomendo." },
-                { author: "Rafael martins", date: "há 11 meses", text: "Pensa em um clima gostoso essa loja, pessoa super alto astral. Equipe bem treinada e motivada a atender bem e com qualidade. A veterinária Rafaela foi muito atenciosa." },
-                { author: "Warley barber", date: "há 1 ano", text: "Lugar top, pessoas de confiança e com um excelente trabalho de qualidade, amei o tratamento com meu pet, e ainda buscam em casa e trás perfeito." },
-                { author: "LUIZ ALVES BARRETO RESENDE", date: "há 7 meses", text: "Fui bem atendido Boas orientacoes pea castrar meu pet" },
-                { author: "Dayane Santos", date: "há 1 ano", text: "Atendimento excelente, o pessoal de lá são super educados e carinhoso com minha pet... Super indico ... Obrigado pelo carinho de sempre 💖" },
-                { author: "eleci oliveira", date: "há 2 anos", text: "Recomendo a todos para cuidar do seu pet. São profissionais super dedicados. O motorista que transporta os pets é de extrema educação e muito prestativo. A médica veterinária é uma pérola." },
-                { author: "Sol Ribeiro", date: "há 11 meses", text: "Excelente trabalho. Muito atenciosos. Obrigada por cuidar bem das minhas meninas 🥰" },
-                { author: "Eliane Goulart", date: "há 2 anos", text: "Um ótimo lugar, atendimento impecável pessoal atencioso com os pets e com nós clientes que depositamos confiança! Nota 10 💖" }
+            const reviewsData = [
+                // Google Reviews
+                { source: "google", author: "Xtez games", date: "há 2 meses", text: "Tinha perdido a esperança sobre meu cachorro, levei na super dog, fez consulta, passou os medicamentos, hoje ele esta ótimo." },
+                { source: "google", author: "Luciana Patricia", date: "há 2 meses", text: "Alguns anos eu levo minhas pts, super confio no trabalho deles. Sempre minhas cachorrinhas voltam super feliz e bem limpinhas e cheirosas. eu super indico" },
+                { source: "google", author: "FRANZ ROGÉRIO", date: "há 1 mês", text: "Atendimento excelente, sempre atenciosos preço Justo e amor no que faz. Super recomendo." },
+                { source: "google", author: "Rafael martins", date: "há 11 meses", text: "Pensa em um clima gostoso essa loja, pessoa super alto astral. Equipe bem treinada e motivada a atender bem e com qualidade. A veterinária Rafaela foi muito atenciosa e profissional ao cuidar da minha pequena Tula. Super indico se pudesse daria mil estrelas. Vou voltar mais vezes." },
+                { source: "google", author: "Warley barber", date: "há 1 ano", text: "Lugar top, pessoas de confiança e com um excelente trabalho de qualidade, amei o tratamento com meu pet, e ainda buscam em casa e trás perfeito, como meus dias são muito corrido." },
+                { source: "google", author: "LUIZ ALVES BARRETO RESENDE", date: "há 7 meses", text: "Fui bem atendido Boas orientacoes pea castrar meu pet" },
+                { source: "google", author: "Dayane Santos", date: "há 1 ano", text: "Atendimento excelente, o pessoal de lá são super educados e carinhoso com minha pet... Super indico ... Obrigado pelo carinho se sempre 💖" },
+                { source: "google", author: "eleci oliveira", date: "há 2 anos", text: "Recomendo a todos para cuidar do seu pet. São profissionais super dedicados. O motorista que transporta os pets é de extrema educação e muito prestativo. A médica veterinária é uma pérola." },
+                { source: "google", author: "Sol Ribeiro", date: "há 11 meses", text: "Excelente trabalho. Muito atenciosos. Obrigada por cuidar bem das minhas meninas 🥰" },
+                { source: "google", author: "Eliane Goulart", date: "há 2 anos", text: "Um ótimo lugar, atendimento impecável pessoal atencioso com os pets e com nós clientes que depositamos confiança! Nota 10 💖" },
+                
+                // Petlove Reviews
+                { source: "petlove", author: "Heloísa", date: "há 6 dias", text: "Muito carinhosa a médica ." },
+                { source: "petlove", author: "Helena", date: "há 8 dias", text: "Sempre satisfeita" },
+                { source: "petlove", author: "Gabriel", date: "há 9 dias", text: "Perfeito, atendimento atencioso e profissionais maravilhosos. Lugar aconchegante e tem tudo que precisamos." },
+                { source: "petlove", author: "Thatiana", date: "há 17 dias", text: "Ótimo" },
+                { source: "petlove", author: "Viviane", date: "há 21 dias", text: "Excelente!" },
+                { source: "petlove", author: "Vitória", date: "há 23 dias", text: "Bem atendida e estrutura muito boa! Agradeço" },
+                { source: "petlove", author: "Débora", date: "há 2 meses", text: "Vétérinária muito boazinha e atenciosa." },
+                { source: "petlove", author: "Maria", date: "há 3 meses", text: "Eu amo a clínica, são extremamentes carinhosos e atenciosos com nossos pets. Sempre recomendo para minha família e conhecidos." },
+                { source: "petlove", author: "Murilo", date: "há 4 meses", text: "Excelente!! Dra. Rafaela é ótima!" },
+                { source: "petlove", author: "Isabella", date: "há 4 meses", text: "Veterinária excelente e super atenciosa. Recomendo!" }
             ];
+
+            // Shuffle reviews array
+            const shuffledReviews = [...reviewsData].sort(() => Math.random() - 0.5);
 
             function renderCarouselReviews(reviews) {
                 track.innerHTML = '';
@@ -1078,6 +1094,11 @@
                     const avatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(review.author)}&background=00AE9D&color=fff&bold=true`;
                     const wrapper = document.createElement('div');
                     wrapper.className = 'review-card-wrapper';
+                    
+                    const sourceLogo = review.source === 'google' 
+                        ? `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-2 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><iconify-icon icon="logos:google-icon" width="22"></iconify-icon></div>`
+                        : `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Petlove" class="w-full h-full object-contain"/></div>`;
+
                     wrapper.innerHTML = `
                         <div class="review-card">
                             <div class="flex items-center justify-between mb-2">
@@ -1088,7 +1109,7 @@
                                         <span class="text-white/40 font-inter text-[9px] uppercase tracking-wider">${review.date}</span>
                                     </div>
                                 </div>
-                                <iconify-icon icon="logos:google-icon" width="16" class="opacity-80"></iconify-icon>
+                                ${sourceLogo}
                             </div>
                             <div class="flex gap-0.5 mb-3">
                                 <iconify-icon icon="solar:star-bold" class="stars text-[10px]"></iconify-icon>
@@ -1097,7 +1118,7 @@
                                 <iconify-icon icon="solar:star-bold" class="stars text-[10px]"></iconify-icon>
                                 <iconify-icon icon="solar:star-bold" class="stars text-[10px]"></iconify-icon>
                             </div>
-                            <p class="text-white/70 font-inter text-[13px] md:text-sm leading-relaxed italic line-clamp-4">
+                            <p class="text-white/70 font-inter text-[13px] md:text-sm leading-relaxed italic line-clamp-6">
                                 "${review.text}"
                             </p>
                         </div>
@@ -1108,7 +1129,7 @@
 
             window.moveReviews = (direction) => {
                 const step = window.innerWidth >= 768 ? 33.333 : 100;
-                const totalCards = mockReviews.length;
+                const totalCards = shuffledReviews.length;
                 const maxIndex = window.innerWidth >= 768 ? totalCards - 3 : totalCards - 1;
                 
                 reviewIndex += direction;
@@ -1116,12 +1137,20 @@
                 if (reviewIndex > maxIndex) reviewIndex = 0;
                 
                 track.style.transform = `translateX(-${reviewIndex * step}%)`;
+                resetReviewInterval();
             };
 
-            // Auto-rotate every 5s
-            setInterval(() => moveReviews(1), 5000);
+            function startReviewInterval() {
+                reviewInterval = setInterval(() => moveReviews(1), 3500); 
+            }
 
-            renderCarouselReviews(mockReviews);
+            function resetReviewInterval() {
+                clearInterval(reviewInterval);
+                startReviewInterval();
+            }
+
+            startReviewInterval();
+            renderCarouselReviews(shuffledReviews);
         });
     </script>
 </body>
