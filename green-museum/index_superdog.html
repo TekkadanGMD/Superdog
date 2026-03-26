@@ -440,6 +440,56 @@
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
+
+        /* Dobra 6: Contact & Map Specifics */
+        .glass-dark-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 24px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+        .glass-dark-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 140, 0, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+        .map-window {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            transition: transform 0.8s ease;
+        }
+        .map-window:hover {
+            transform: scale(1.01) translateY(-5px);
+        }
+        .pulse-orange {
+            box-shadow: 0 0 0 0 rgba(255, 140, 0, 0.7);
+            animation: pulse-orange 2s infinite;
+        }
+        @keyframes pulse-orange {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 140, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(255, 140, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 140, 0, 0); }
+        }
+        .float-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.15;
+            pointer-events: none;
+            animation: float-slow 15s linear infinite;
+        }
+        @keyframes float-slow {
+            from { transform: translateY(0) translateX(0); opacity: 0; }
+            50% { opacity: 0.3; }
+            to { transform: translateY(-300px) translateX(100px); opacity: 0; }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-navy selection:text-white">
@@ -450,14 +500,14 @@
         <div class="flex items-center gap-4 md:gap-10 pl-2">
             <!-- Clínica (Maior) usando scale para não esticar a altura do cabeçalho -->
             <div class="h-12 md:h-16 flex items-center justify-center">
-                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA.png" alt="Super Dog Clínica" class="h-full w-auto object-contain mix-blend-multiply origin-left scale-[1.3] md:scale-[1.6] transform hover:scale-[1.7] transition-transform"/>
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.png" alt="Super Dog Clínica" class="h-full w-auto object-contain mix-blend-multiply origin-left scale-[1.85] md:scale-[2.3] transform hover:scale-[2.4] transition-transform"/>
             </div>
             
             <div class="h-8 md:h-10 w-[2px] bg-navy/10 rounded-full ml-4 md:ml-8"></div>
             
             <!-- Pet Shop (Menor) -->
             <div class="h-10 md:h-12 flex items-center justify-center">
-                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP.png" alt="Super Dog Pet Shop" class="h-full w-auto object-contain mix-blend-multiply scale-[1.1] md:scale-125 transform hover:scale-150 transition-transform"/>
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.png" alt="Super Dog Pet Shop" class="h-full w-auto object-contain mix-blend-multiply scale-[1.6] md:scale-[1.8] transform hover:scale-[1.9] transition-transform"/>
             </div>
         </div>
         
@@ -472,8 +522,8 @@
         </div>
     </nav>
 
-    <!-- [Dobra 1] Hero Section -->
-    <section id="hero-main" class="flex-grow flex flex-col md:px-12 lg:flex-row lg:gap-10 w-full max-w-7xl mx-auto px-5 py-6 md:py-8 lg:py-0 min-h-[calc(100vh-88px)] md:min-h-[calc(100vh-100px)] relative items-center justify-center overflow-hidden">
+    <!-- [Dobra 1] Hero Section - Explicit 20px+ gap from header -->
+    <section id="hero-main" class="flex-grow flex flex-col gap-y-12 md:px-12 lg:flex-row lg:gap-10 w-full max-w-7xl mx-auto px-5 pt-10 md:pt-14 lg:pt-16 pb-6 md:pb-8 lg:py-0 min-h-[calc(100vh-88px)] md:min-h-[calc(100vh-100px)] relative items-center justify-center overflow-hidden">
         
         <!-- Scattered Texture Layer (Paws, Cats, Stethoscopes & Texts fading in/out) -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -504,13 +554,13 @@
         </div>
 
         <!-- Left Content (Text) -->
-        <div id="hero-text" class="flex-1 w-full flex flex-col items-start pt-4 lg:pt-6 z-10 will-change-transform">
+        <div id="hero-text" class="flex-1 w-full flex flex-col items-start pt-0 -mt-2 md:-mt-4 lg:-mt-12 z-10 will-change-transform">
             
-            <!-- Pet Love Badge -->
-            <div class="inline-flex items-center gap-2 md:gap-3 px-4 py-1.5 md:px-6 md:py-2.5 rounded-full border border-white/70 bg-white/50 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,42,91,0.05)] mb-4 lg:mb-6 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards] hover:border-orange/30 hover:bg-white/70 transition-all duration-300 group cursor-default mt-0 overflow-hidden h-9 md:h-12 max-w-full">
-                <span class="text-[10px] md:text-sm font-inter font-extrabold text-navy uppercase tracking-widest pt-0.5 whitespace-nowrap">Aceitamos Convênio:</span>
-                <div class="h-14 md:h-24 w-24 md:w-36 flex items-center justify-start pointer-events-none">
-                    <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Convênio Pet Love" class="w-full h-full object-contain drop-shadow-sm transform scale-[1.7] md:scale-[2.0] transform-gpu origin-center group-hover:scale-[2.2] transition-transform duration-500"/>
+            <!-- Pet Love Badge (Scaled down 25%) -->
+            <div class="inline-flex items-center gap-2 md:gap-3 px-3 py-1 md:px-5 md:py-2 rounded-full border border-white/70 bg-white/50 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,42,91,0.05)] mb-4 lg:mb-6 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards] hover:border-orange/30 hover:bg-white/70 transition-all duration-300 group cursor-default mt-0 overflow-hidden h-7 md:h-10 max-w-full">
+                <span class="text-[9px] md:text-[13px] font-inter font-extrabold text-navy uppercase tracking-widest pt-0.5 whitespace-nowrap">Aceitamos Convênio:</span>
+                <div class="h-10 md:h-20 w-22 md:w-32 flex items-center justify-start pointer-events-none">
+                    <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Convênio Pet Love" class="w-full h-full object-contain drop-shadow-sm transform scale-[1.6] md:scale-[1.9] transform-gpu origin-center group-hover:scale-[2.1] transition-transform duration-500"/>
                 </div>
             </div>
             
@@ -523,20 +573,20 @@
             </p>
             
             <div class="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto mt-2 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
-                <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-base md:text-lg flex items-center justify-center gap-3 transition-all duration-500 hover:-translate-y-1.5 shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_rgba(37,211,102,0.6)] overflow-visible group border border-white/20 outline-none animate-[pulseGreen_2.5s_infinite]">
+                <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full sm:w-auto px-5 py-2.5 md:px-7 md:py-3.5 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-sm md:text-base flex items-center justify-center gap-3 transition-all duration-500 hover:-translate-y-1.5 shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_rgba(37,211,102,0.6)] overflow-visible group border border-white/20 outline-none animate-[pulseGreen_2.5s_infinite]">
                     
                     <!-- Easter Egg Hover (Textos Flutuantes Pop-up) -->
-                    <span class="absolute -top-6 md:-top-8 left-[10%] text-orange font-montserrat font-extrabold text-xs md:text-sm opacity-0 group-hover:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
-                    <span class="absolute -top-8 md:-top-10 right-[15%] text-navy font-montserrat font-extrabold text-sm md:text-[15px] opacity-0 group-hover:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
+                    <span class="absolute -top-6 md:-top-8 left-[10%] text-orange font-montserrat font-extrabold text-[10px] md:text-xs opacity-0 group-hover:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
+                    <span class="absolute -top-8 md:-top-10 right-[15%] text-navy font-montserrat font-extrabold text-[11px] md:text-sm opacity-0 group-hover:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
 
                     <!-- Máscara de Clip para o Brilho contínuo no hover -->
                     <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
                         <div class="absolute inset-0 w-full h-full -translate-x-full group-hover:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
                     </div>
                     
-                    <!-- Ícone com fundo de vidro protetor -->
-                    <div class="relative z-10 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white/20 backdrop-blur-sm rounded-full group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
-                        <iconify-icon icon="ic:baseline-whatsapp" width="22" class="text-white drop-shadow-sm"></iconify-icon>
+                    <!-- Ícone com fundo de vidro protetor (Scaled) -->
+                    <div class="relative z-10 flex items-center justify-center w-7 h-7 md:w-9 md:h-9 bg-white/20 backdrop-blur-sm rounded-full group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
+                        <iconify-icon icon="ic:baseline-whatsapp" width="18" class="text-white drop-shadow-sm"></iconify-icon>
                     </div>
                     
                     <span class="relative z-10 tracking-wide group-hover:tracking-widest transition-all duration-300">Agendar pelo WhatsApp</span>
@@ -1057,15 +1107,151 @@
             </div>
         </div>
 
-        <!-- SEO GEO Booster Footer -->
-        <div class="mt-24 text-center opacity-30 select-none px-6 pb-20">
-            <p class="text-white font-inter text-[10px] md:text-sm font-bold uppercase tracking-[0.2em]">
-                Referência em cuidados pet no Barreiro, Itaipu e região há mais de 20 anos.
-            </p>
+    <!-- [Dobra 6] Localização e Conversão Final (Light Mode) -->
+    <section id="location-section" class="relative w-full pt-10 md:pt-16 pb-24 md:pb-32 bg-stone-50 overflow-hidden z-30">
+        
+        <!-- Scattered Texture Layer (Consistency with Dobras 1, 2, 4) -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <!-- Left side icons -->
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[8%] md:top-[12%] left-[4%] md:left-[8%] text-navy/5 text-4xl md:text-5xl rotate-[15deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_1s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute top-[45%] left-[2%] md:left-[5%] text-orange/10 text-5xl md:text-6xl rotate-12 opacity-0 animate-[fadeInOut_12s_ease-in-out_infinite_4s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[25%] md:bottom-[20%] left-[8%] md:left-[10%] text-navy/5 text-3xl md:text-4xl rotate-[160deg] opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_3s]"></iconify-icon>
+            
+            <!-- Right side icons -->
+            <iconify-icon icon="fa6-solid:stethoscope" class="absolute top-[12%] md:top-[8%] right-[20%] md:right-[25%] text-orange/10 text-3xl md:text-4xl rotate-[220deg] opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_1s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[45%] right-[10%] md:right-[18%] text-navy/10 text-3xl md:text-4xl rotate-[-40deg] opacity-0 animate-[fadeInOut_7s_ease-in-out_infinite_2s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:stethoscope" class="absolute bottom-[35%] md:bottom-[30%] right-[15%] md:right-[22%] text-orange/10 text-5xl md:text-6xl -rotate-[20deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_3s]"></iconify-icon>
+            
+            <!-- Playful Texts scattered -->
+            <span class="absolute top-[25%] left-[15%] md:left-[20%] text-navy/5 font-montserrat font-extrabold text-xl md:text-2xl -rotate-12 select-none opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_2s]">au-au!</span>
+            <span class="absolute bottom-[45%] md:bottom-[50%] left-[30%] md:left-[38%] text-orange/10 font-montserrat font-extrabold text-lg md:text-xl rotate-12 select-none opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_6s]">miauuu!</span>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
+            
+            <!-- Centered Header: Logos & Single-line Text -->
+            <div class="flex flex-col items-center text-center w-full opacity-0 reveal-on-scroll">
+                
+                <!-- Combined Logos (15px Packing from Top) -->
+                <div class="relative inline-block pt-[15px] pb-4">
+                    <div class="flex items-center gap-6 md:gap-12 relative">
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.png" alt="Super Dog Logo" class="h-28 md:h-44 w-auto object-contain mix-blend-multiply opacity-90"/>
+                        <div class="h-20 md:h-28 w-[1.5px] bg-navy/10"></div>
+                        <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET SHOP SEM FUNDO.png" alt="Pet Shop Logo" class="h-24 md:h-36 w-auto object-contain mix-blend-multiply opacity-90"/>
+                    </div>
+                </div>
+
+                <!-- Headline & Subhead (Single Line, 10px Padding) -->
+                <div class="py-2.5 w-full">
+                    <h1 class="text-lg md:text-2xl lg:text-3xl font-montserrat font-extrabold text-navy whitespace-nowrap overflow-hidden text-ellipsis">
+                        Estamos no <span class="text-orange">Itaipu</span>, pertinho de você.
+                    </h1>
+                    <p class="text-stone-500 font-inter text-sm md:text-base mt-1">
+                        Agende agora e garanta o melhor cuidado para o seu amigo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Content Grid 2 Columns (10px padding from text) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start w-full mt-2.5">
+                
+                <!-- 1st Column: Conexão e Horários (Order 2 on Mobile, 1 on Desktop) -->
+                <div class="flex flex-col gap-8 opacity-0 reveal-on-scroll order-2 lg:order-1" style="transition-delay: 0.1s;">
+
+                    <!-- Contacts Grid -->
+                    <div class="space-y-4">
+                        <!-- WhatsApp Card -->
+                        <a href="https://wa.me/5531988579302" target="_blank" class="glass-light-card flex items-center gap-5 group no-underline border border-stone-200 bg-white/40 backdrop-blur-md rounded-2xl p-6 transition-all duration-500 hover:shadow-xl hover:-translate-y-1.5 hover:border-orange/30">
+                            <div class="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-600 group-hover:bg-green-500/20 transition-all shadow-[0_0_20px_rgba(37,211,102,0.1)] group-hover:shadow-[0_0_30px_rgba(37,211,102,0.3)]">
+                                <iconify-icon icon="ic:baseline-whatsapp" width="26" class="animate-pulse"></iconify-icon>
+                            </div>
+                            <div>
+                                <p class="text-navy/40 text-[10px] uppercase tracking-widest font-bold">WhatsApp & Fone</p>
+                                <p class="text-navy font-montserrat font-extrabold text-lg">(31) 98857-9302</p>
+                            </div>
+                        </a>
+
+                        <!-- Email Card -->
+                        <div class="glass-light-card flex items-center gap-5 border border-stone-200 bg-white/40 backdrop-blur-md rounded-2xl p-6 transition-all duration-500">
+                            <div class="w-12 h-12 rounded-2xl bg-navy/5 flex items-center justify-center text-navy/40">
+                                <iconify-icon icon="solar:letter-bold" width="24"></iconify-icon>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-navy/40 text-[10px] uppercase tracking-widest font-bold">E-mail</p>
+                                <p class="text-navy/80 font-inter text-sm truncate">superdogvetpetshop@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Instagram Card -->
+                        <a href="https://www.instagram.com/superdogvetpetshop/" target="_blank" class="glass-light-card flex items-center gap-5 group no-underline border border-stone-200 bg-white/40 backdrop-blur-md rounded-2xl p-6 transition-all duration-500 hover:shadow-xl hover:-translate-y-1.5 hover:border-orange/30">
+                            <div class="w-12 h-12 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-500 group-hover:bg-pink-500/20 transition-all">
+                                <iconify-icon icon="fa6-brands:instagram" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <p class="text-navy/40 text-[10px] uppercase tracking-widest font-bold">Instagram</p>
+                                <p class="text-navy font-montserrat font-bold text-lg group-hover:text-pink-500 transition-colors">@superdogvetpetshop</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Opening Hours -->
+                    <div class="mt-4 p-6 border-t border-navy/10">
+                        <h4 class="text-orange font-montserrat font-extrabold text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                            <iconify-icon icon="solar:clock-circle-bold" width="18"></iconify-icon>
+                            Horário de Atendimento
+                        </h4>
+                        <div class="space-y-2 text-stone-600 font-inter text-sm">
+                            <div class="flex justify-between"><span>Seg. a Sex:</span> <span class="font-bold text-navy">09:00 às 19:00</span></div>
+                            <div class="flex justify-between"><span>Sábado:</span> <span class="font-bold text-navy">09:00 às 14:00</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2ª Coluna: O Mapa Digital (Order 1 on Mobile, 2 on Desktop) -->
+                <div class="flex flex-col items-center lg:items-start gap-8 opacity-0 reveal-on-scroll order-1 lg:order-2" style="transition-delay: 0.2s;">
+                    
+                    <!-- Rectangular Map Window (Light Style) -->
+                    <div class="map-window w-full aspect-video relative border border-stone-200">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.032128527581!2d-44.02700312389146!3d-19.986161681414436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa697ef776bf7ac%3A0x4d7021bf5147787f!2sSuperDog%20Cl%C3%ADnica%20Veterin%C3%A1ria%20e%20PetShop!5e0!3m2!1spt-BR!2sbr!4v1711425000000!5m2!1spt-BR!2sbr" 
+                            width="100%" height="100%" style="border:0; filter: grayscale(0.2) brightness(1) contrast(1.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div class="absolute top-[48%] left-[48%] pointer-events-none">
+                            <div class="w-8 h-8 rounded-full bg-orange/40 pulse-orange"></div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Address (Now Below Map) -->
+                    <div class="text-center lg:text-left group w-full pt-4">
+                        <address class="not-italic text-navy/90 font-montserrat font-extrabold text-sm tracking-wide mb-2 group-hover:text-orange transition-colors">
+                            R. Taboão da Serra, 412 - Itaipu, Belo Horizonte
+                        </address>
+                        <div class="flex items-center justify-center lg:justify-start gap-3 text-stone-400 text-[11px] font-bold uppercase tracking-widest">
+                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:parking-bold" class="text-orange"></iconify-icon> Estacionamento Fácil</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-stone-200"></span>
+                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:coffee-bold" class="text-orange"></iconify-icon> Café Quentinho</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Scripts for Refined Dobra 3 Interactions -->
+    <!-- [Footer Refined] -->
+    <footer class="bg-[#000a14] py-12 border-t border-white/5 z-40 relative">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <img src="assets/Imagens/LOGOS SUPER DOG 500X500 CLINICA SEM FUNDO.png" alt="Super Dog Logo" class="h-10 opacity-30 brightness-0 invert"/>
+                <p class="text-white/20 text-xs font-inter uppercase tracking-widest">© 2026 Super Dog Clínica Veterinária. Todos os direitos reservados.</p>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <span class="text-white/10 text-[9px] uppercase font-bold">Feito com 🧡 por</span>
+                <span class="text-white/30 text-[10px] font-montserrat font-black tracking-tight cursor-default hover:text-orange transition-colors">TEKKADAN</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Refined Interactions -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             
@@ -1082,7 +1268,8 @@
             const revealElements = [
                 document.getElementById('reveal-container'),
                 document.getElementById('social-anchor-container'),
-                document.getElementById('social-copy-container')
+                document.getElementById('social-copy-container'),
+                ...document.querySelectorAll('.reveal-on-scroll')
             ];
             
             revealElements.forEach(el => {
