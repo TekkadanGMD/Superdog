@@ -122,6 +122,134 @@
             overflow-x: hidden;
             font-family: 'Inter', sans-serif;
         }
+
+        /* 3D Service Carousel (Upright) */
+        .carousel-3d-stage {
+            perspective: 2000px;
+            width: 100%;
+            height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+            margin-top: 2rem;
+        }
+        .carousel-3d-ring {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .carousel-3d-item {
+            position: absolute;
+            width: 350px;
+            height: 500px;
+            left: 50%;
+            top: 50%;
+            margin-left: -175px;
+            margin-top: -250px;
+            backface-visibility: hidden;
+            transition: all 0.8s ease;
+        }
+        /* Item positions (5 slots) - Radius adjusted to 500px */
+        .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(500px); }
+        .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(500px); }
+        .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(500px); }
+        .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(500px); }
+        .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(500px); }
+
+        /* Mobile Adjustment */
+        @media (max-width: 768px) {
+            .carousel-3d-stage { height: 500px; }
+            .carousel-3d-item {
+                width: 280px;
+                height: 420px;
+                margin-left: -140px;
+                margin-top: -210px;
+            }
+            .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
+            .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(300px); }
+            .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(300px); }
+            .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(300px); }
+            .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(300px); }
+        }
+
+        /* Glass Glow Card & Interactions */
+        .glass-glow-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 3.5rem;
+            padding: 2.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 42, 91, 0.05);
+            animation: outer-glow 4s ease-in-out infinite;
+            transition: all 0.5s ease;
+        }
+        .glass-glow-card:hover {
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 40px 80px rgba(0, 42, 91, 0.15);
+            transform: scale(1.02);
+        }
+
+        /* Tilt Effect on Card Content */
+        .tilt-inner {
+            transform: translateZ(30px);
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .glass-glow-card:hover .tilt-inner {
+            transform: translateZ(60px);
+        }
+        
+        /* Icon Swings */
+        .service-icon {
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-glow-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .glass-glow-card:hover .service-icon.swing {
+            animation: iconSwing 2s ease-in-out infinite;
+        }
+        @keyframes iconSwing {
+            0%, 100% { transform: scale(1.1) rotate(5deg); }
+            50% { transform: scale(1.1) rotate(-5deg); }
+        }
+
+        /* Nav Buttons */
+        .carousel-nav-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #002A5B;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            z-index: 100;
+        }
+        .carousel-nav-btn:hover {
+            background: #FF8C00;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Reveal Animation Utility */
+        .reveal-active {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-navy selection:text-white">
@@ -454,33 +582,236 @@
                 </div>
             </div>
         </div>
-
     </section>
 
-    <!-- Intersection Observer for Smooth Reveal -->
+    <!-- [Dobra 3] Serviços e Especialidades (Refined) -->
+    <section id="services-suspension" class="w-full bg-[#F9FAFB] py-24 md:py-32 px-5 relative overflow-hidden">
+        
+        <!-- Background Ambient Textures (Low opacity navy icons) -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <iconify-icon icon="fa6-solid:paw" class="absolute top-[5%] left-[5%] text-navy/5 text-4xl rotate-[15deg] opacity-0 animate-[fadeInOut_8s_ease-in-out_infinite_1s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:cat" class="absolute top-[40%] left-[2%] text-orange/5 text-5xl rotate-12 opacity-0 animate-[fadeInOut_12s_ease-in-out_infinite_4s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:paw" class="absolute bottom-[20%] left-[8%] text-navy/5 text-3xl rotate-[160deg] opacity-0 animate-[fadeInOut_9s_ease-in-out_infinite_3s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:stethoscope" class="absolute top-[10%] right-[10%] text-orange/5 text-4xl rotate-45 opacity-0 animate-[fadeInOut_10s_ease-in-out_infinite_6s]"></iconify-icon>
+            <iconify-icon icon="fa6-solid:dog" class="absolute bottom-[10%] right-[5%] text-navy/5 text-4xl rotate-12 opacity-0 animate-[fadeInOut_12s_ease-in-out_infinite_7s]"></iconify-icon>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            
+            <!-- 1. Anchor Visual & Upper Header -->
+            <div class="text-center mb-12">
+                <span class="text-orange font-montserrat font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block animate-[fadeInUp_0.8s_ease-out]">"A experiência de quem conhece cada detalhe do seu amigo."</span>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-montserrat font-black text-navy leading-tight mb-6">
+                    Cuidado Completo e <span class="text-orange">Humanizado</span> no Barreiro
+                </h2>
+                <p class="text-navy/60 font-inter text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                    Da rotina preventiva aos momentos de urgência, nossa clínica veterinária está pronta para oferecer o melhor diagnóstico no Itaipu.
+                </p>
+            </div>
+
+            <!-- Parallax Mosaico Banner -->
+            <div class="max-w-5xl mx-auto mb-20 md:mb-32">
+                <div class="parallax-container relative group rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,42,91,0.3)] border border-white/50">
+                    <img id="mosaico-parallax" src="assets/Imagens/IMG002_REFINED_MOSAICO.png" alt="Super Dog Mosaico Refined" class="parallax-media w-full h-[300px] md:h-[500px] object-cover scale-110"/>
+                    <!-- Glassy Overlay for text if needed (keeping it clean as per request) -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent pointer-events-none"></div>
+                </div>
+            </div>
+
+            <!-- 2. The Service Carousel (3D Antigravity Style) -->
+            <div class="relative mt-8 group/carousel">
+                
+                <!-- Navigation Arrows -->
+                <div class="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 carousel-nav-btn" onclick="rotateCarousel(-1)">
+                    <iconify-icon icon="solar:alt-arrow-left-bold" width="28"></iconify-icon>
+                </div>
+                <div class="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 carousel-nav-btn" onclick="rotateCarousel(1)">
+                    <iconify-icon icon="solar:alt-arrow-right-bold" width="28"></iconify-icon>
+                </div>
+
+                <!-- 3D Stage -->
+                <div class="carousel-3d-stage">
+                    <div id="service-ring" class="carousel-3d-ring">
+                        
+                        <!-- Card 1: Consultas -->
+                        <div class="carousel-3d-item">
+                            <div class="glass-glow-card">
+                                <div class="tilt-inner flex flex-col items-center">
+                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-navy/5 rounded-3xl text-navy service-icon swing">
+                                        <iconify-icon icon="solar:stethoscope-bold-duotone" width="56"></iconify-icon>
+                                    </div>
+                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Consultas e Urgências</h3>
+                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                        Atendimento imediato em horário comercial para consultas de rotina ou urgências. Diagnósticos precisos para sua tranquilidade.
+                                    </p>
+                                    <div class="mt-8">
+                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-orange font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
+                                            Agendar Consulta <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Vacinas -->
+                        <div class="carousel-3d-item">
+                            <div class="glass-glow-card">
+                                <div class="tilt-inner flex flex-col items-center">
+                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-orange/10 rounded-3xl text-orange service-icon">
+                                        <iconify-icon icon="solar:syringe-bold-duotone" width="56"></iconify-icon>
+                                    </div>
+                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Vacinas Importadas</h3>
+                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                        Protocolo completo de imunização (V10, Raiva, Gripe) com as melhores marcas mundiais para proteção total.
+                                    </p>
+                                    <div class="mt-8">
+                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-orange font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
+                                            Ver Protocolo <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Castração -->
+                        <div class="carousel-3d-item">
+                            <div class="glass-glow-card">
+                                <div class="tilt-inner flex flex-col items-center">
+                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-navy/5 rounded-3xl text-navy service-icon">
+                                        <iconify-icon icon="solar:medical-kit-bold-duotone" width="56"></iconify-icon>
+                                    </div>
+                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Castração e Cirurgias</h3>
+                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                        Procedimentos seguros com anestesia monitorada e foco total no conforto e na recuperação rápida do pet.
+                                    </p>
+                                    <div class="mt-8">
+                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-orange font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
+                                            Saber Mais <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Exames -->
+                        <div class="carousel-3d-item">
+                            <div class="glass-glow-card">
+                                <div class="tilt-inner flex flex-col items-center">
+                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-orange/5 rounded-3xl text-orange service-icon">
+                                        <iconify-icon icon="solar:magnifer-zoom-in-bold-duotone" width="56"></iconify-icon>
+                                    </div>
+                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Exames e Diagnósticos</h3>
+                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                        Facilitamos seu dia: exames laboratoriais e parcerias para Raio-X e Ultrassom com agendamento direto na clínica.
+                                    </p>
+                                    <div class="mt-8">
+                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-orange font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
+                                            Agendar Exame <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Petlove -->
+                        <div class="carousel-3d-item">
+                            <div class="glass-glow-card">
+                                <div class="tilt-inner flex flex-col items-center">
+                                    <div class="w-24 h-24 mb-8 flex items-center justify-center bg-[#00AE9D]/10 rounded-3xl text-[#00AE9D] service-icon">
+                                        <iconify-icon icon="solar:shield-check-bold-duotone" width="56"></iconify-icon>
+                                    </div>
+                                    <h3 class="text-2xl font-montserrat font-extrabold text-navy mb-4">Petlove</h3>
+                                    <p class="text-navy/60 font-inter text-base leading-relaxed font-medium">
+                                        Use seu plano de saúde pet aqui! Somos parceiros oficiais para garantir economia e o melhor atendimento.
+                                    </p>
+                                    <div class="mt-8">
+                                        <a href="https://wa.me/5531988579302" class="inline-flex items-center gap-2 text-[#00AE9D] font-bold text-sm uppercase tracking-wider hover:gap-3 transition-all">
+                                            Ver Convênios <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO Booster Footer -->
+            <div class="mt-24 md:mt-32 text-center">
+                <p class="text-navy/30 font-inter text-xs md:text-sm font-bold uppercase tracking-[0.2em] select-none">
+                    Referência em cuidados pet para moradores do Itaipu, Barreiro e região.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Scripts for Refined Dobra 3 Interactions -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Reveal Animation (Intersection Observer)
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
             const revealContainer = document.getElementById('reveal-container');
-            if (revealContainer) {
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: "0px 0px -50px 0px"
-                };
+            if (revealContainer) revealObserver.observe(revealContainer);
 
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.remove('opacity-0', 'translate-y-20');
-                            entry.target.classList.add('opacity-100', 'translate-y-0');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, observerOptions);
-
-                observer.observe(revealContainer);
+            // 2. Parallax Effect for Mosaico
+            const mosaico = document.getElementById('mosaico-parallax');
+            if (mosaico) {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    const rect = mosaico.parentElement.getBoundingClientRect();
+                    const offset = rect.top + scrolled;
+                    const speed = 0.15;
+                    
+                    if (scrolled + window.innerHeight > offset && scrolled < offset + rect.height) {
+                        const yPos = -(scrolled - offset) * speed;
+                        mosaico.style.transform = `translateY(${yPos}px) scale(1.1)`;
+                    }
+                });
             }
+
+            // 3. 3D Service Carousel Logic
+            const ring = document.getElementById('service-ring');
+            let currentRotation = 0;
+            let autoRotateInterval;
+
+            window.rotateCarousel = (direction) => {
+                currentRotation += (direction * -72); // 360 / 5 = 72
+                ring.style.transform = `rotateY(${currentRotation}deg)`;
+                resetAutoRotate();
+            };
+
+            function startAutoRotate() {
+                autoRotateInterval = setInterval(() => {
+                    currentRotation -= 72;
+                    ring.style.transform = `rotateY(${currentRotation}deg)`;
+                }, 4000); // Rotate every 4 seconds
+            }
+
+            function resetAutoRotate() {
+                clearInterval(autoRotateInterval);
+                startAutoRotate();
+            }
+
+            // Pause on hover
+            const carouselStage = document.querySelector('.carousel-3d-stage');
+            if (carouselStage) {
+                carouselStage.addEventListener('mouseenter', () => clearInterval(autoRotateInterval));
+                carouselStage.addEventListener('mouseleave', startAutoRotate);
+            }
+
+            startAutoRotate();
         });
     </script>
-
 </body>
 </html>
