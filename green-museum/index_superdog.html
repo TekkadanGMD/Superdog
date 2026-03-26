@@ -140,73 +140,162 @@
             width: 100%;
             height: 100%;
             transform-style: preserve-3d;
-            transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: grab;
+            /* Constant speed drift via JS */
+            transition: transform 0s linear;
         }
+        .carousel-3d-ring:active { cursor: grabbing; }
+
         .carousel-3d-item {
             position: absolute;
-            width: 350px;
-            height: 500px;
+            width: 340px; /* Increased for full text visibility */
+            height: 520px;
             left: 50%;
             top: 50%;
-            margin-left: -175px;
-            margin-top: -250px;
+            margin-left: -170px;
+            margin-top: -260px;
             backface-visibility: hidden;
             transition: all 0.8s ease;
         }
-        /* Item positions (5 slots) - Radius adjusted to 500px */
-        .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(500px); }
-        .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(500px); }
-        .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(500px); }
-        .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(500px); }
-        .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(500px); }
+
+        @media (max-width: 768px) {
+            .carousel-3d-item {
+                width: 280px; /* Scaled mobile size */
+                height: 460px;
+                margin-left: -140px;
+                margin-top: -230px;
+            }
+        }
+        /* Item positions (5 slots) - Updated radius for larger cards */
+        .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(260px); }
+        .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(260px); }
+        .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(260px); }
+        .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(260px); }
+        .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(260px); }
+
+        @media (max-width: 768px) {
+            .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(210px); }
+            .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(210px); }
+            .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(210px); }
+            .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(210px); }
+            .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(210px); }
+        }
 
         /* Mobile Adjustment */
         @media (max-width: 768px) {
-            .carousel-3d-stage { height: 550px; }
-            .carousel-3d-item {
-                width: 300px;
-                height: 480px;
-                margin-left: -150px;
-                margin-top: -240px;
-            }
-            .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(320px); }
-            .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(320px); }
-            .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(320px); }
-            .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(320px); }
-            .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(320px); }
-            
-            .glass-glow-card { padding: 2rem 1.5rem; }
+            .carousel-3d-stage { height: 500px; }
+            .glass-glow-card { padding: 1.5rem; border-radius: 2.5rem; }
         }
 
-        /* Glass Glow Card & Interactions */
+        /* Glass Glow Card & Interactions (Refined for Contrast) */
         .glass-glow-card {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 3.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            /* Fixed, elegant 1.2px border for precision */
+            border: 1.2px solid rgba(0, 42, 91, 0.12); 
+            border-radius: 3rem;
             padding: 2.5rem;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 42, 91, 0.05);
-            animation: outer-glow 4s ease-in-out infinite;
-            transition: all 0.5s ease;
-        }
-        .glass-glow-card:hover {
-            background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 40px 80px rgba(0, 42, 91, 0.15);
-            transform: scale(1.02);
+            /* Deeper shadow for elevation */
+            box-shadow: 
+                0 15px 45px -5px rgba(0, 42, 91, 0.08),
+                0 5px 15px -5px rgba(0, 42, 91, 0.05);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: visible;
         }
 
-        /* Tilt Effect on Card Content */
+        /* Outer Glow Effect (Navy & Teal for Identity) */
+        .glass-glow-card::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(0, 42, 91, 0.4), rgba(0, 174, 157, 0.3));
+            z-index: -1;
+            opacity: 0.4;
+            filter: blur(12px);
+            transition: opacity 0.5s ease;
+        }
+
+        /* Mobile specific steady state */
+        @media (max-width: 768px) {
+            .glass-glow-card {
+                border-color: rgba(0, 42, 91, 0.2);
+                padding: 1.25rem;
+                /* Smaller, subtle shadow for mobile */
+                box-shadow: 0 8px 25px rgba(0, 42, 91, 0.08); 
+                background: rgba(255, 255, 255, 0.98);
+            }
+            .glass-glow-card::after {
+                opacity: 0.5;
+                inset: -4px;
+            }
+        }
+
+        .glass-glow-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            /* Soft, ethereal navy/teal glow */
+            border-color: rgba(0, 174, 157, 0.3);
+            box-shadow: 
+                0 40px 80px -15px rgba(0, 42, 91, 0.12),
+                0 10px 30px -10px rgba(0, 174, 157, 0.1);
+            transform: scale(1.03) translateY(-10px);
+        }
+
+        .glass-glow-card:hover::after {
+            opacity: 0.65;
+            filter: blur(18px);
+            background: linear-gradient(135deg, rgba(0, 42, 91, 0.4), rgba(0, 174, 157, 0.3));
+        }
+
+        /* Soft Active State for smooth click feedback */
+        .glass-glow-card:active {
+            transform: scale(0.98) translateY(-5px);
+            transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .glass-glow-card:active::after {
+            opacity: 0.6;
+            filter: blur(10px);
+        }
+
+        /* Tilt Effect on Card Content - Forced to fill height for standardization */
         .tilt-inner {
             transform: translateZ(30px);
             transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         .glass-glow-card:hover .tilt-inner {
             transform: translateZ(60px);
+        }
+        
+        .service-title {
+            min-height: 3.5rem; /* Forces 2 lines of vertical space for alignment */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .service-description {
+            display: block; /* Removed line-clamp to show all text */
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+            flex-grow: 1; /* Helps push button down together */
+        }
+
+        @media (min-width: 768px) {
+            .service-description {
+                font-size: 1rem;
+            }
         }
         
         /* Icon Swings */
@@ -722,28 +811,22 @@
             <!-- 2. The Service Carousel (3D Antigravity Style) -->
             <div class="relative mt-8 group/carousel">
                 
-                <!-- Navigation Arrows -->
-                <div class="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 carousel-nav-btn" onclick="rotateCarousel(-1)">
-                    <iconify-icon icon="solar:alt-arrow-left-bold" width="28"></iconify-icon>
-                </div>
-                <div class="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 carousel-nav-btn" onclick="rotateCarousel(1)">
-                    <iconify-icon icon="solar:alt-arrow-right-bold" width="28"></iconify-icon>
-                </div>
+                <!-- 3D Stage (No arrows as per request - Touch enabled) -->
 
                 <!-- 3D Stage -->
                 <div class="carousel-3d-stage">
                     <div id="service-ring" class="carousel-3d-ring">
                         
                         <!-- Card 1: Consultas -->
-                        <div class="carousel-3d-item">
+                        <div class="carousel-3d-item" onclick="centerCard(0)">
                             <div class="glass-glow-card">
                                 <div class="tilt-inner flex flex-col items-center h-full">
                                     <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-navy/5 rounded-3xl text-navy service-icon swing">
                                         <iconify-icon icon="solar:stethoscope-bold-duotone" width="48" class="md:hidden"></iconify-icon>
                                         <iconify-icon icon="solar:stethoscope-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Consultas e Urgências</h3>
-                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4 service-title">Consultas e Urgências</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium service-description">
                                         Atendimento imediato em horário comercial para consultas de rotina ou urgências. Diagnósticos precisos para sua tranquilidade.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
@@ -764,15 +847,15 @@
                         </div>
 
                         <!-- Card 2: Vacinas -->
-                        <div class="carousel-3d-item">
+                        <div class="carousel-3d-item" onclick="centerCard(1)">
                             <div class="glass-glow-card">
                                 <div class="tilt-inner flex flex-col items-center h-full">
                                     <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-orange/10 rounded-3xl text-orange service-icon">
                                         <iconify-icon icon="solar:syringe-bold-duotone" width="48" class="md:hidden"></iconify-icon>
                                         <iconify-icon icon="solar:syringe-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Vacinas Importadas</h3>
-                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4 service-title">Vacinas Importadas</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium service-description">
                                         Protocolo completo de imunização (V10, Raiva, Gripe) com as melhores marcas mundiais para proteção total.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
@@ -793,15 +876,15 @@
                         </div>
 
                         <!-- Card 3: Castração -->
-                        <div class="carousel-3d-item">
+                        <div class="carousel-3d-item" onclick="centerCard(2)">
                             <div class="glass-glow-card">
                                 <div class="tilt-inner flex flex-col items-center h-full">
                                     <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-navy/5 rounded-3xl text-navy service-icon">
                                         <iconify-icon icon="solar:medical-kit-bold-duotone" width="48" class="md:hidden"></iconify-icon>
                                         <iconify-icon icon="solar:medical-kit-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Castração e Cirurgias</h3>
-                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4 service-title">Castração e Cirurgias</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium service-description">
                                         Procedimentos seguros com anestesia monitorada e foco total no conforto e na recuperação rápida do pet.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
@@ -822,15 +905,15 @@
                         </div>
 
                         <!-- Card 4: Exames -->
-                        <div class="carousel-3d-item">
+                        <div class="carousel-3d-item" onclick="centerCard(3)">
                             <div class="glass-glow-card">
                                 <div class="tilt-inner flex flex-col items-center h-full">
                                     <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-orange/5 rounded-3xl text-orange service-icon">
                                         <iconify-icon icon="solar:magnifer-zoom-in-bold-duotone" width="48" class="md:hidden"></iconify-icon>
                                         <iconify-icon icon="solar:magnifer-zoom-in-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Exames e Diagnósticos</h3>
-                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4 service-title">Exames e Diagnósticos</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium service-description">
                                         Facilitamos seu dia: exames laboratoriais e parcerias para Raio-X e Ultrassom com agendamento direto na clínica.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
@@ -851,15 +934,15 @@
                         </div>
 
                         <!-- Card 5: Petlove -->
-                        <div class="carousel-3d-item">
+                        <div class="carousel-3d-item" onclick="centerCard(4)">
                             <div class="glass-glow-card">
                                 <div class="tilt-inner flex flex-col items-center h-full">
                                     <div class="w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center bg-[#00AE9D]/10 rounded-3xl text-[#00AE9D] service-icon">
                                         <iconify-icon icon="solar:shield-check-bold-duotone" width="48" class="md:hidden"></iconify-icon>
                                         <iconify-icon icon="solar:shield-check-bold-duotone" width="56" class="hidden md:block"></iconify-icon>
                                     </div>
-                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4">Petlove</h3>
-                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium">
+                                    <h3 class="text-xl md:text-2xl font-montserrat font-extrabold text-navy mb-3 md:mb-4 service-title">Petlove Oficial</h3>
+                                    <p class="text-navy/60 font-inter text-sm md:text-base leading-relaxed font-medium service-description">
                                         Use seu plano de saúde pet aqui! Somos parceiros oficiais para garantir economia e o melhor atendimento.
                                     </p>
                                     <div class="mt-auto w-full pt-6">
@@ -1022,37 +1105,69 @@
                 });
             }
 
-            // 3. 3D Service Carousel Logic
+            // 3. 3D Service Carousel Logic (Ultra-Stable JS Loop)
             const ring = document.getElementById('service-ring');
+            let isDragging = false;
+            let startX = 0;
+            let initialRotation = 0;
             let currentRotation = 0;
-            let autoRotateInterval;
+            let isAutoSpinning = true;
 
-            window.rotateCarousel = (direction) => {
-                currentRotation += (direction * -72); // 360 / 5 = 72
+            function update() {
+                if (isAutoSpinning && !isDragging) {
+                    currentRotation -= (360 / (120 * 60)); // Ultra-slow drift
+                    ring.style.transform = `rotateY(${currentRotation}deg)`;
+                }
+                requestAnimationFrame(update);
+            }
+
+            window.centerCard = (index) => {
+                isAutoSpinning = false;
+                const targetBaseAngle = index * -72;
+                let current = currentRotation;
+                let wraps = Math.floor(current / 360);
+                let target = (wraps * 360) + targetBaseAngle;
+                if (Math.abs(target - current) > 180) {
+                    target += (target > current ? -360 : 360);
+                }
+                currentRotation = target;
+                ring.style.transition = 'transform 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
                 ring.style.transform = `rotateY(${currentRotation}deg)`;
-                resetAutoRotate();
+                setTimeout(() => { if (!isDragging) { isAutoSpinning = true; ring.style.transition = 'none'; } }, 8000);
             };
 
-            function startAutoRotate() {
-                autoRotateInterval = setInterval(() => {
-                    currentRotation -= 72;
-                    ring.style.transform = `rotateY(${currentRotation}deg)`;
-                }, 4000); // Rotate every 4 seconds
-            }
+            const handleStart = (e) => {
+                isDragging = true;
+                isAutoSpinning = false;
+                ring.style.transition = 'none';
+                startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+                initialRotation = currentRotation;
+            };
 
-            function resetAutoRotate() {
-                clearInterval(autoRotateInterval);
-                startAutoRotate();
-            }
+            const handleMove = (e) => {
+                if (!isDragging) return;
+                const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+                const walk = (x - startX) * 0.4;
+                currentRotation = initialRotation + walk;
+                ring.style.transform = `rotateY(${currentRotation}deg)`;
+            };
 
-            // Pause on hover
-            const carouselStage = document.querySelector('.carousel-3d-stage');
-            if (carouselStage) {
-                carouselStage.addEventListener('mouseenter', () => clearInterval(autoRotateInterval));
-                carouselStage.addEventListener('mouseleave', startAutoRotate);
-            }
+            const handleEnd = () => {
+                if (!isDragging) return;
+                isDragging = false;
+                currentRotation = Math.round(currentRotation / 72) * 72;
+                ring.style.transition = 'transform 0.5s ease-out';
+                ring.style.transform = `rotateY(${currentRotation}deg)`;
+                setTimeout(() => { if (!isDragging) { isAutoSpinning = true; ring.style.transition = 'none'; } }, 3000);
+            };
 
-            startAutoRotate();
+            ring.parentElement.addEventListener('mousedown', handleStart);
+            window.addEventListener('mousemove', handleMove);
+            window.addEventListener('mouseup', handleEnd);
+            ring.parentElement.addEventListener('touchstart', handleStart, { passive: false });
+            window.addEventListener('touchmove', handleMove, { passive: false });
+            window.addEventListener('touchend', handleEnd);
+            update();
 
             // 4. Social Proof Reviews Logic (Google + Petlove)
             const track = document.getElementById('reviews-track');
