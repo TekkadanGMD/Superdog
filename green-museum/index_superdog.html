@@ -77,6 +77,11 @@
                             '20%, 80%': { opacity: '1', transform: 'translateY(0) scale(1.1)' },
                             '100%': { opacity: '0', transform: 'translateY(-15px) scale(0.9)' },
                         },
+                        floatAmbient: {
+                            '0%, 100%': { transform: 'translateY(0) translateX(0) rotate(0deg)' },
+                            '33%': { transform: 'translateY(-15px) translateX(10px) rotate(5deg)' },
+                            '66%': { transform: 'translateY(15px) translateX(-10px) rotate(-5deg)' },
+                        },
                         walkPoint: {
                             '0%, 100%': { opacity: '0.2', transform: 'translateY(-3px)' },
                             '50%': { opacity: '1', transform: 'translateY(3px)' },
@@ -95,8 +100,12 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet"/>
     <style>
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .bg-grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+        }
         body {
             background-color: #FAFAFA;
             color: #262624;
@@ -136,7 +145,7 @@
     </nav>
 
     <!-- [Dobra 1] Hero Section -->
-    <section class="flex-grow flex flex-col md:px-12 lg:flex-row lg:gap-10 w-full max-w-7xl mx-auto px-5 py-6 md:py-8 lg:py-0 min-h-[calc(100vh-88px)] md:min-h-[calc(100vh-100px)] relative items-center justify-center overflow-hidden">
+    <section id="hero-main" class="flex-grow flex flex-col md:px-12 lg:flex-row lg:gap-10 w-full max-w-7xl mx-auto px-5 py-6 md:py-8 lg:py-0 min-h-[calc(100vh-88px)] md:min-h-[calc(100vh-100px)] relative items-center justify-center overflow-hidden">
         
         <!-- Scattered Texture Layer (Paws, Cats, Stethoscopes & Texts fading in/out) -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -167,18 +176,18 @@
         </div>
 
         <!-- Left Content (Text) -->
-        <div class="flex-1 w-full flex flex-col items-start pt-4 lg:pt-6 z-10">
+        <div id="hero-text" class="flex-1 w-full flex flex-col items-start pt-4 lg:pt-6 z-10 will-change-transform">
             
             <!-- Pet Love Badge -->
-            <div class="inline-flex items-center gap-2 md:gap-3 px-4 py-1.5 md:px-6 md:py-2.5 rounded-full border border-navy/10 bg-white/60 backdrop-blur-md shadow-sm mb-4 lg:mb-6 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards] hover:border-orange/30 transition-colors group cursor-default mt-0 overflow-hidden h-9 md:h-12 max-w-full">
+            <div class="inline-flex items-center gap-2 md:gap-3 px-4 py-1.5 md:px-6 md:py-2.5 rounded-full border border-white/70 bg-white/50 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,42,91,0.05)] mb-4 lg:mb-6 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards] hover:border-orange/30 hover:bg-white/70 transition-all duration-300 group cursor-default mt-0 overflow-hidden h-9 md:h-12 max-w-full">
                 <span class="text-[10px] md:text-sm font-inter font-extrabold text-navy uppercase tracking-widest pt-0.5 whitespace-nowrap">Aceitamos Convênio:</span>
                 <div class="h-14 md:h-24 w-24 md:w-36 flex items-center justify-start pointer-events-none">
-                    <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Convênio Pet Love" class="w-full h-full object-contain drop-shadow-sm transform scale-[1.7] md:scale-[2.0] transform-gpu origin-center group-hover:scale-[2.2] transition-transform"/>
+                    <img src="assets/Imagens/LOGOS SUPER DOG 500X500 PET LOVE SEM FUNDO.png" alt="Convênio Pet Love" class="w-full h-full object-contain drop-shadow-sm transform scale-[1.7] md:scale-[2.0] transform-gpu origin-center group-hover:scale-[2.2] transition-transform duration-500"/>
                 </div>
             </div>
             
-            <h1 class="text-[1.7rem] leading-[1.1] md:text-4xl lg:text-5xl font-montserrat text-navy mb-4 lg:mb-6 md:leading-[1.15] tracking-tight drop-shadow-sm max-w-[650px] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
-                Amamos o seu pet <span class="font-medium font-inter italic text-stone-500">como você ama</span>, com a confiança de quem cuida dos Pets do Barreiro <span class="font-extrabold text-orange relative inline-block group mt-1 lg:mt-3">há 20 anos<span class="absolute -bottom-1 left-0 w-full h-1.5 md:h-2 bg-orange/20 rounded-full group-hover:bg-orange/40 transition-colors"></span></span>.
+            <h1 class="text-[1.7rem] leading-[1.1] md:text-4xl lg:text-5xl font-montserrat text-navy mb-4 lg:mb-6 md:leading-[1.15] tracking-tight drop-shadow-md max-w-[650px] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
+                Amamos o seu pet <span class="font-playfair font-medium italic text-stone-600">como você ama</span>, com a confiança de quem cuida dos Pets do Barreiro <span class="font-extrabold text-orange relative inline-block group mt-1 lg:mt-3">há 20 anos<span class="absolute -bottom-1 left-0 w-full h-1.5 md:h-2 bg-orange/20 rounded-full group-hover:bg-orange/40 transition-colors duration-500"></span></span>.
             </h1>
             
             <p class="text-sm md:text-lg text-stone-600 font-inter font-normal max-w-lg leading-relaxed mb-6 lg:mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
@@ -208,10 +217,10 @@
         </div>
 
         <!-- Right Content: Visual Composition (3D Carousel) -->
-        <div class="flex-1 w-full h-full relative flex items-center justify-center pb-12 pt-6 lg:py-20 z-10 w-full overflow-visible">
+        <div id="hero-visual" class="flex-1 w-full h-full relative flex items-center justify-center pb-12 pt-6 lg:py-20 z-10 w-full overflow-visible will-change-transform">
             
             <!-- 3D Carousel Container (Antigravity) -->
-            <div class="relative w-[75%] max-w-[260px] sm:max-w-[320px] md:max-w-[420px] aspect-[4/5] animate-float-up perspective-[1000px] z-20" style="animation-fill-mode: both;">
+            <div class="relative w-[75%] max-w-[260px] sm:max-w-[320px] md:max-w-[420px] aspect-[4/5] animate-float-up perspective-[1000px] z-20 hover:scale-[1.02] transition-transform duration-700" style="animation-fill-mode: both;">
                 
                 <!-- Internal styles for 3D Carousel classes -->
                 <style>
@@ -308,6 +317,35 @@
                             scrollIndicator.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
                         }
                     });
+
+                    // Premium Parallax Interaction (Desktop only)
+                    const heroMain = document.getElementById('hero-main');
+                    const heroText = document.getElementById('hero-text');
+                    const heroVisual = document.getElementById('hero-visual');
+                    
+                    if(heroMain && heroText && heroVisual) {
+                        heroMain.addEventListener('mousemove', (e) => {
+                            if (window.innerWidth < 1024) return;
+                            const xAxis = (window.innerWidth / 2 - e.pageX) / 80;
+                            const yAxis = (window.innerHeight / 2 - e.pageY) / 80;
+                            
+                            heroText.style.transform = `translate(${xAxis * 0.5}px, ${yAxis * 0.5}px)`;
+                            heroVisual.style.transform = `translate(${xAxis * -1}px, ${yAxis * -1}px)`;
+                        });
+                        
+                        heroMain.addEventListener('mouseleave', () => {
+                            heroText.style.transform = `translate(0px, 0px)`;
+                            heroVisual.style.transform = `translate(0px, 0px)`;
+                            heroText.style.transition = 'transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                            heroVisual.style.transition = 'transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                        });
+                        
+                        heroMain.addEventListener('mouseenter', () => {
+                            heroText.style.transition = 'none';
+                            heroVisual.style.transition = 'none';
+                        });
+                    }
+
                     const slides = document.querySelectorAll('.carousel-slide');
                     const states = ['slide-front', 'slide-back-right', 'slide-back-left'];
                     let currentIndex = 0;
