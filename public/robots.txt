@@ -1,17 +1,17 @@
 User-agent: *
 Allow: /
 
-# Block AI training bots
+# Allow AI training bots for improved mentions (LLMO/AIO)
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 Sitemap: https://superdogbh.com.br/sitemap.xml
