@@ -1425,9 +1425,10 @@
                     const wrapper = document.createElement('div');
                     wrapper.className = 'review-card-wrapper';
                     
+                    const petloveLogo = "assets/" + "images/LOGOS_SUPER_DOG_PET_LOVE_SEM_FUNDO.webp";
                     const sourceLogo = review.source === 'google' 
                         ? `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-2 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><iconify-icon icon="logos:google-icon" width="22"></iconify-icon></div>`
-                        : `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><img src="assets/images/LOGOS_SUPER_DOG_PET_LOVE_SEM_FUNDO.webp" alt="Petlove" class="w-full h-full object-contain" loading="lazy" decoding="async"/></div>`;
+                        : `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><img src="${petloveLogo}" alt="Petlove" class="w-full h-full object-contain" loading="lazy" decoding="async"/></div>`;
 
                     wrapper.innerHTML = `
                         <div class="review-card">
