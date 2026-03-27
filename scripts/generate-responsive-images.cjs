@@ -7,7 +7,8 @@ const images = [
     'IMG006_MOSAICO_HORIZONTAL.webp',
     'IMG003_VET_MULHER.webp',
     'IMG001_DOG_FIAPO.webp',
-    'IMG005_GATO.webp'
+    'IMG005_GATO.webp',
+    'IMG006_MOSAICO_HORIZONTAL_AZUL.jpg'
 ];
 
 const sizes = [480, 1020];
