@@ -9,7 +9,7 @@ export default {
       },
       colors: {
         navy: '#002A5B',
-        orange: '#FF8C00',
+        orange: '#E67E00',
         red: '#E31B23',
       },
       animation: {
