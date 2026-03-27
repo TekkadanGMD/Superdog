@@ -11,7 +11,20 @@
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
+    "tailwindcss": "^3.4.19",
     "vite": "^5.0.0"
-  }
+  },
+  "description": "",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TekkadanGMD/Superdog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TekkadanGMD/Superdog/issues"
+  },
+  "homepage": "https://github.com/TekkadanGMD/Superdog#readme"
 }
