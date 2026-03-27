@@ -68,7 +68,14 @@
       }
     }
     </script>
-    <!-- Tailwind CDN for arbitrary classes to work without build step -->
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+    <!-- Tailwind CDN for local preview and arbitrary classes -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -169,13 +176,37 @@
             }
         }
     </script>
-    <!-- Iconify -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <style>
+        /* [Critical CSS] Manual Inline for High Performance LCP */
+        .bg-navy { background-color: #002A5B; }
+        .text-navy { color: #002A5B; }
+        .text-orange { color: #FF8C00; }
+        .bg-orange { background-color: #FF8C00; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-extrabold { font-weight: 800; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .w-full { width: 100%; }
+        .max-w-7xl { max-width: 80rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .z-50 { z-index: 50; }
+        .bg-white\/70 { background-color: rgba(255, 255, 255, 0.7); }
+        .backdrop-blur-\[12px\] { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .rounded-full { border-radius: 9999px; }
+        .border-b { border-bottom-width: 1px; }
+        .border-stone-200 { border-color: #e7e5e4; }
+        .mix-blend-multiply { mix-blend-mode: multiply; }
+        .object-contain { object-fit: contain; }
+        
+        @media (min-width: 768px) {
+            .md\:flex-row { flex-direction: row; }
+            .md\:gap-10 { gap: 2.5rem; }
+        }
+
         .bg-grain {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
         }
@@ -568,14 +599,14 @@
         <div class="flex items-center gap-4 md:gap-10 pl-2">
             <!-- Clínica (Maior) usando scale para não esticar a altura do cabeçalho -->
             <div class="h-12 md:h-16 flex items-center justify-center">
-                <img src="assets/images/LOGOS_SUPER_DOG_CLINICA_SEM_FUNDO.webp" alt="Super Dog Clínica" class="h-full w-auto object-contain mix-blend-multiply origin-left scale-[1.85] md:scale-[2.3] transform hover:scale-[2.4] transition-transform" decoding="async"/>
+                <img src="assets/images/LOGOS_SUPER_DOG_CLINICA_SEM_FUNDO.webp" alt="Super Dog Clínica" width="300" height="120" class="h-full w-auto object-contain mix-blend-multiply origin-left scale-[1.85] md:scale-[2.3] transform hover:scale-[2.4] transition-transform" decoding="async" fetchpriority="high"/>
             </div>
             
             <div class="h-8 md:h-10 w-[2px] bg-navy/10 rounded-full ml-4 md:ml-8"></div>
             
             <!-- Pet Shop (Menor) -->
             <div class="h-10 md:h-12 flex items-center justify-center">
-                <img src="assets/images/LOGOS_SUPER_DOG_PET_SHOP_SEM_FUNDO.webp" alt="Super Dog Pet Shop" class="h-full w-auto object-contain mix-blend-multiply scale-[1.6] md:scale-[1.8] transform hover:scale-[1.9] transition-transform" decoding="async"/>
+                <img src="assets/images/LOGOS_SUPER_DOG_PET_SHOP_SEM_FUNDO.webp" alt="Super Dog Pet Shop" width="200" height="80" class="h-full w-auto object-contain mix-blend-multiply scale-[1.6] md:scale-[1.8] transform hover:scale-[1.9] transition-transform" decoding="async" fetchpriority="high"/>
             </div>
         </div>
         
@@ -706,7 +737,7 @@
                     
                     <!-- Slide 1: Vet -->
                     <div class="carousel-slide slide-front group" data-index="0">
-                        <img src="assets/images/IMG003_VET_MULHER.webp" alt="Veterinária Super Dog" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
+                        <img src="assets/images/IMG003_VET_MULHER.webp" alt="Veterinária Super Dog" class="w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
                     </div>
 
@@ -1511,5 +1542,7 @@
         });
         document.addEventListener('dragstart', e => e.preventDefault());
     </script>
+    <!-- Scripts Footer -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
 </body>
 </html>
