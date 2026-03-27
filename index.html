@@ -1089,11 +1089,11 @@
             <!-- 2. Copywriting Estratégico -->
             <div class="text-center mb-12 max-w-3xl opacity-0 translate-y-10 transition-all duration-1000" id="social-copy-container">
                 <h2 class="text-3xl md:text-5xl lg:text-6xl font-montserrat font-black text-white mb-6 tracking-tight drop-shadow-lg">
-                    Referência em <span class="text-orange">Clínica Veterinária</span> no Barreiro: O que dizem nossos vizinhos.
+                    O que dizem nossos <span class="text-orange">clientes</span> no Barreiro:
                 </h2>
                 <div class="h-1.5 w-24 bg-orange rounded-full mx-auto mb-8 shadow-[0_0_15px_#FF8C00]"></div>
                 <p class="text-base md:text-xl text-white/80 font-inter font-medium leading-relaxed">
-                    Com nota 4.8 no Google Meus Negócios, a Super Dog é a escolha de quem não abre mão de carinho e competência técnica no Itaipu.
+                    Com nota 4.8 no Google Meus Negócios, a Super Dog é a escolha de quem não abre mão de carinho e competência técnica no Barreiro.
                 </p>
             </div>
 
@@ -1482,6 +1482,19 @@
             startReviewInterval();
             renderCarouselReviews(shuffledReviews);
         });
+    </script>
+    <script>
+        // Security: Deterrence against content theft and source inspection
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && (e.key === 'u' || e.key === 's')) || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+                (e.metaKey && e.altKey && (e.key === 'i' || e.key === 'u'))) {
+                e.preventDefault();
+            }
+        });
+        document.addEventListener('dragstart', e => e.preventDefault());
     </script>
 </body>
 </html>
