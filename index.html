@@ -72,8 +72,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Preload LCP Image -->
-    <link rel="preload" as="image" href="assets/images/IMG006_MOSAICO_HORIZONTAL.webp" fetchpriority="high">
+    <!-- Preload LCP Image (Mobile optimized) -->
+    <link rel="preload" as="image" href="assets/images/IMG006_MOSAICO_HORIZONTAL-480w.avif" media="(max-width: 639px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/images/IMG006_MOSAICO_HORIZONTAL-1020w.avif" media="(min-width: 640px)" fetchpriority="high">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -258,19 +259,34 @@
                     
                     <!-- Slide 1: Vet -->
                     <div class="carousel-slide slide-front group" data-index="0">
-                        <img src="assets/images/IMG003_VET_MULHER.webp" alt="Veterinária Super Dog" width="340" height="520" class="w-full h-full object-cover" fetchpriority="high" decoding="async"/>
+                        <picture>
+                            <source srcset="assets/images/IMG003_VET_MULHER-480w.avif" media="(max-width: 639px)" type="image/avif">
+                            <source srcset="assets/images/IMG003_VET_MULHER-1020w.avif" media="(min-width: 640px)" type="image/avif">
+                            <source srcset="assets/images/IMG003_VET_MULHER-480w.webp 480w, assets/images/IMG003_VET_MULHER-1020w.webp 1020w" sizes="(max-width: 639px) 100vw, 340px" type="image/webp">
+                            <img src="assets/images/IMG003_VET_MULHER.webp" alt="Veterinária Super Dog" width="340" height="520" class="w-full h-full object-cover" fetchpriority="high" decoding="async"/>
+                        </picture>
                         <div class="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
                     </div>
 
                     <!-- Slide 2: Dog Fiapo -->
                     <div class="carousel-slide slide-back-right group" data-index="1">
-                        <img src="assets/images/IMG001_DOG_FIAPO.webp" alt="Cão Super Dog" width="340" height="520" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
+                        <picture>
+                            <source srcset="assets/images/IMG001_DOG_FIAPO-480w.avif" media="(max-width: 639px)" type="image/avif">
+                            <source srcset="assets/images/IMG001_DOG_FIAPO-1020w.avif" media="(min-width: 640px)" type="image/avif">
+                            <source srcset="assets/images/IMG001_DOG_FIAPO-480w.webp 480w, assets/images/IMG001_DOG_FIAPO-1020w.webp 1020w" sizes="(max-width: 639px) 100vw, 340px" type="image/webp">
+                            <img src="assets/images/IMG001_DOG_FIAPO.webp" alt="Cão Super Dog" width="340" height="520" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
+                        </picture>
                         <div class="absolute inset-0 bg-gradient-to-t from-orange/50 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
                     </div>
                     
                     <!-- Slide 3: Cat -->
                     <div class="carousel-slide slide-back-left group" data-index="2">
-                        <img src="assets/images/IMG005_GATO.webp" alt="Gato Super Dog" width="340" height="520" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
+                        <picture>
+                            <source srcset="assets/images/IMG005_GATO-480w.avif" media="(max-width: 639px)" type="image/avif">
+                            <source srcset="assets/images/IMG005_GATO-1020w.avif" media="(min-width: 640px)" type="image/avif">
+                            <source srcset="assets/images/IMG005_GATO-480w.webp 480w, assets/images/IMG005_GATO-1020w.webp 1020w" sizes="(max-width: 639px) 100vw, 340px" type="image/webp">
+                            <img src="assets/images/IMG005_GATO.webp" alt="Gato Super Dog" width="340" height="520" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
+                        </picture>
                         <div class="absolute inset-0 bg-gradient-to-t from-red/40 via-transparent to-transparent pointer-events-none group-[.slide-front]:opacity-100 opacity-50 transition-opacity"></div>
                     </div>
                     
@@ -448,7 +464,12 @@
 
             <!-- Mosaico Banner (Full Format, No Effect) -->
             <div class="max-w-6xl mx-auto mb-20 md:mb-32 px-4 reveal-on-scroll">
-                <img id="mosaico-full" src="assets/images/IMG006_MOSAICO_HORIZONTAL.webp" alt="Especialidades Clínica Veterinária Barreiro Super Dog" width="1200" height="600" class="w-full h-auto rounded-[2rem] md:rounded-[4rem] shadow-[0_25px_60px_rgba(0,42,91,0.15)] border border-stone-100" fetchpriority="high" decoding="async"/>
+                <picture>
+                    <source srcset="assets/images/IMG006_MOSAICO_HORIZONTAL-480w.avif" media="(max-width: 639px)" type="image/avif">
+                    <source srcset="assets/images/IMG006_MOSAICO_HORIZONTAL-1020w.avif" media="(min-width: 640px)" type="image/avif">
+                    <source srcset="assets/images/IMG006_MOSAICO_HORIZONTAL-480w.webp 480w, assets/images/IMG006_MOSAICO_HORIZONTAL-1020w.webp 1020w" sizes="(max-width: 639px) 100vw, 1020px" type="image/webp">
+                    <img id="mosaico-full" src="assets/images/IMG006_MOSAICO_HORIZONTAL.webp" alt="Especialidades Clínica Veterinária Barreiro Super Dog" width="1020" height="574" class="w-full h-auto rounded-[2rem] md:rounded-[4rem] shadow-[0_25px_60px_rgba(0,42,91,0.15)] border border-stone-100" fetchpriority="high" decoding="async"/>
+                </picture>
             </div>
 
             <!-- 2. The Service Carousel (3D Antigravity Style) -->
