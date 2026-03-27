@@ -2,7 +2,6 @@ User-agent: *
 Allow: /
 Sitemap: https://superdogbh.com.br/sitemap.xml
 
-# Protect content from AI scraping
 User-agent: GPTBot
 Disallow: /
 
