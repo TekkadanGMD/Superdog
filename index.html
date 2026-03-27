@@ -223,10 +223,10 @@
 
         @media (max-width: 768px) {
             .carousel-3d-item {
-                width: 280px; /* Scaled mobile size */
-                height: 460px;
-                margin-left: -140px;
-                margin-top: -230px;
+                width: 260px; /* Restored closer to desktop proportions */
+                height: 400px;
+                margin-left: -130px;
+                margin-top: -200px;
             }
         }
         /* Item positions (5 slots) - Updated radius for larger cards */
@@ -237,17 +237,17 @@
         .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(260px); }
 
         @media (max-width: 768px) {
-            .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(210px); }
-            .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(210px); }
-            .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(210px); }
-            .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(210px); }
-            .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(210px); }
+            .carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
+            .carousel-3d-item:nth-child(2) { transform: rotateY(72deg) translateZ(200px); }
+            .carousel-3d-item:nth-child(3) { transform: rotateY(144deg) translateZ(200px); }
+            .carousel-3d-item:nth-child(4) { transform: rotateY(216deg) translateZ(200px); }
+            .carousel-3d-item:nth-child(5) { transform: rotateY(288deg) translateZ(200px); }
         }
 
         /* Mobile Adjustment */
         @media (max-width: 768px) {
-            .carousel-3d-stage { height: 500px; }
-            .glass-glow-card { padding: 1.5rem; border-radius: 2.5rem; }
+            .carousel-3d-stage { height: 460px; }
+            .glass-glow-card { padding: 1.25rem; border-radius: 2rem; }
         }
 
         /* Glass Glow Card & Interactions (Refined for Contrast) */
@@ -340,7 +340,7 @@
         }
         
         .service-title {
-            min-height: 3.5rem; /* Forces 2 lines of vertical space for alignment */
+            min-height: 3.5rem; /* Forces consistent start for description */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -348,11 +348,13 @@
         }
 
         .service-description {
-            display: block; /* Removed line-clamp to show all text */
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-top: 1rem;
-            flex-grow: 1; /* Helps push button down together */
+            display: block; /* Restored for natural wrapping */
+            text-align: center;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin-top: 0.5rem;
+            flex-grow: 1; /* Keeps pushing button down together */
+            min-height: 100px; /* Standardized height */
         }
 
         @media (min-width: 768px) {
@@ -440,12 +442,15 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
-            padding: 30px;
+            padding: 24px; /* Reduced from 30px for more horizontal space */
             height: 100%;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
             transition: all 0.4s ease;
+        }
+        @media (min-width: 768px) {
+            .review-card { padding: 30px; gap: 15px; }
         }
         .review-card:hover {
             background: rgba(255, 255, 255, 0.08);
@@ -577,16 +582,16 @@
         <!-- Plano Pet Love Highlight -->
         
         <!-- CTA Telefone -->
-        <div class="flex items-center gap-4 pr-2 pb-1 md:pb-0">
-            <a class="flex items-center justify-center px-4 py-1.5 md:px-6 md:py-2 bg-navy text-white rounded-full text-sm font-inter font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_4px_12px_rgba(0,42,91,0.25)] hover:shadow-[0_6px_20px_rgba(0,42,91,0.3)] hover:bg-[#001f44] gap-2" href="tel:+5531988579302">
-                <iconify-icon icon="solar:phone-calling-bold" width="18" class="animate-pulse"></iconify-icon>
+        <div class="flex items-center gap-4 pr-1 md:pr-2 pb-1 md:pb-0">
+            <a class="flex items-center justify-center px-2.5 py-1 md:px-6 md:py-2 bg-navy text-white rounded-full text-[11px] md:text-sm font-inter font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_4px_12px_rgba(0,42,91,0.25)] hover:shadow-[0_6px_20px_rgba(0,42,91,0.3)] hover:bg-[#001f44] gap-1.5 md:gap-2" href="tel:+5531988579302">
+                <iconify-icon icon="solar:phone-calling-bold" width="15" class="animate-pulse md:w-[18px]"></iconify-icon>
                 (31) 98857-9302
             </a>
         </div>
     </nav>
 
-    <!-- [Dobra 1] Hero Section - Explicit 20px+ gap from header -->
-    <section id="hero-main" class="flex-grow flex flex-col gap-y-12 md:px-12 lg:flex-row lg:gap-10 w-full max-w-7xl mx-auto px-5 pt-10 md:pt-14 lg:pt-16 pb-6 md:pb-8 lg:py-0 min-h-[calc(100vh-88px)] md:min-h-[calc(100vh-100px)] relative items-center justify-center overflow-hidden">
+    <!-- [Dobra 1] Hero Section - Optimized for Mobile Fold -->
+    <section id="hero-main" class="flex-grow flex flex-col gap-y-10 md:gap-y-12 md:px-12 lg:flex-row lg:gap-10 w-full max-w-7xl mx-auto px-5 pt-4 md:pt-14 lg:pt-16 pb-4 md:pb-8 lg:py-0 min-h-[calc(100svh-80px)] md:min-h-[calc(100vh-100px)] relative items-center justify-center overflow-hidden">
         
         <!-- Scattered Texture Layer (Paws, Cats, Stethoscopes & Texts fading in/out) -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -627,16 +632,16 @@
                 </div>
             </div>
             
-            <h1 class="text-[1.7rem] leading-[1.1] md:text-4xl lg:text-5xl font-montserrat text-navy mb-4 lg:mb-6 md:leading-[1.15] tracking-tight drop-shadow-md max-w-[650px] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
+            <h1 class="text-[1.5rem] leading-[1.1] md:text-4xl lg:text-5xl font-montserrat text-navy mb-3 lg:mb-6 md:leading-[1.15] tracking-tight drop-shadow-md max-w-[650px] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
                 A <span class="font-extrabold text-orange">Clínica Veterinária</span> no Barreiro que ama o seu pet <span class="font-medium italic text-stone-600">como você ama</span>.
             </h1>
             
-            <p class="text-sm md:text-lg text-stone-600 font-inter font-normal max-w-lg leading-relaxed mb-6 lg:mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
+            <p class="text-[13px] md:text-lg text-stone-600 font-inter font-normal max-w-lg leading-relaxed mb-4 lg:mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
                 Se você busca um <strong class="text-navy font-bold">veterinário perto de você</strong> no Itaipu, encontrou a confiança da Super Dog. Unimos 20 anos de tradição ao cuidado médico especializado que seu melhor amigo merece.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto mt-2 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
-                <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full sm:w-auto px-5 py-2.5 md:px-7 md:py-3.5 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-sm md:text-base flex items-center justify-center gap-3 transition-all duration-500 hover:-translate-y-1.5 shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_rgba(37,211,102,0.6)] overflow-visible group border border-white/20 outline-none animate-[pulseGreen_2.5s_infinite]">
+                <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full sm:w-auto px-4 py-2 md:px-7 md:py-3.5 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-[13px] md:text-base flex items-center justify-center gap-2.5 md:gap-3 transition-all duration-500 hover:-translate-y-1.5 shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_rgba(37,211,102,0.6)] overflow-visible group border border-white/20 outline-none animate-[pulseGreen_2.5s_infinite]">
                     
                     <!-- Easter Egg Hover (Textos Flutuantes Pop-up) -->
                     <span class="absolute -top-6 md:-top-8 left-[10%] text-orange font-montserrat font-extrabold text-[10px] md:text-xs opacity-0 group-hover:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
@@ -648,8 +653,8 @@
                     </div>
                     
                     <!-- Ícone com fundo de vidro protetor (Scaled) -->
-                    <div class="relative z-10 flex items-center justify-center w-7 h-7 md:w-9 md:h-9 bg-white/20 backdrop-blur-sm rounded-full group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
-                        <iconify-icon icon="ic:baseline-whatsapp" width="18" class="text-white drop-shadow-sm"></iconify-icon>
+                    <div class="relative z-10 flex items-center justify-center w-6 h-6 md:w-9 md:h-9 bg-white/20 backdrop-blur-sm rounded-full group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
+                        <iconify-icon icon="ic:baseline-whatsapp" width="16" class="text-white drop-shadow-sm md:w-[18px]"></iconify-icon>
                     </div>
                     
                     <span class="relative z-10 tracking-wide group-hover:tracking-widest transition-all duration-300">Agendar Consulta via WhatsApp</span>
@@ -658,7 +663,7 @@
         </div>
 
         <!-- Right Content: Visual Composition (3D Carousel) -->
-        <div id="hero-visual" class="flex-1 w-full h-full relative flex items-center justify-center pb-12 pt-6 lg:py-20 z-10 w-full overflow-visible will-change-transform">
+        <div id="hero-visual" class="flex-1 w-full h-full relative flex items-center justify-center pb-8 pt-2 lg:py-20 z-10 w-full overflow-visible will-change-transform">
             
             <!-- 3D Carousel Container (Antigravity) -->
             <div class="relative w-[75%] max-w-[260px] sm:max-w-[320px] md:max-w-[420px] aspect-[4/5] animate-float-up perspective-[1000px] z-20 hover:scale-[1.02] transition-transform duration-700" style="animation-fill-mode: both;">
@@ -1088,7 +1093,7 @@
             
             <!-- 2. Copywriting Estratégico -->
             <div class="text-center mb-12 max-w-3xl opacity-0 translate-y-10 transition-all duration-1000" id="social-copy-container">
-                <h2 class="text-3xl md:text-5xl lg:text-6xl font-montserrat font-black text-white mb-6 tracking-tight drop-shadow-lg">
+                <h2 class="text-[1.55rem] xs:text-3xl md:text-5xl lg:text-6xl font-montserrat font-black text-white mb-6 tracking-tight drop-shadow-lg">
                     O que dizem nossos <span class="text-orange">clientes</span> no Barreiro:
                 </h2>
                 <div class="h-1.5 w-24 bg-orange rounded-full mx-auto mb-8 shadow-[0_0_15px_#FF8C00]"></div>
@@ -1098,7 +1103,7 @@
             </div>
 
             <!-- 3. Reviews Horizontal Carousel -->
-            <div class="relative w-full max-w-6xl mx-auto px-12 group/carousel">
+            <div class="relative w-full max-w-6xl mx-auto px-4 md:px-12 group/carousel">
                 <!-- Nav Arrows -->
                 <div class="absolute top-1/2 -left-4 md:-left-8 -translate-y-1/2 nav-arrow z-30" onclick="moveReviews(-1)">
                     <iconify-icon icon="solar:alt-arrow-left-bold" width="24"></iconify-icon>
@@ -1119,15 +1124,15 @@
 
             <!-- 4. CTA Button (Standard WhatsApp) -->
             <div class="mt-16 w-full max-w-md flex flex-col items-center">
-                <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative w-full px-8 py-4 bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white rounded-full font-inter font-bold text-base md:text-lg flex items-center justify-center gap-3 transition-all duration-500 hover:scale-[1.05] active:scale-95 shadow-[0_15px_35px_rgba(37,211,102,0.4)] hover:shadow-[0_20px_50px_rgba(37,211,102,0.5)] overflow-visible group/btn-social border border-white/20">
+                <a href="https://wa.me/5531988579302" target="_blank" rel="noopener noreferrer" class="relative group px-6 py-4 md:px-10 md:py-5 bg-[#25D366] text-white rounded-full font-inter font-extrabold text-base md:text-lg flex items-center justify-center gap-3 md:gap-4 transition-all duration-500 hover:scale-110 shadow-[0_15px_45px_rgba(37,211,102,0.4)] hover:shadow-[0_25px_60px_rgba(37,211,102,0.6)] border-b-4 border-green-700 active:translate-y-1 active:border-b-0 whitespace-nowrap">
                     <!-- Easter Egg Sounds -->
-                    <span class="absolute -top-8 left-[10%] text-orange font-montserrat font-extrabold text-sm opacity-0 group-hover/btn-social:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
-                    <span class="absolute -top-10 right-[15%] text-white font-montserrat font-extrabold text-base opacity-0 group-hover/btn-social:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
+                    <span class="absolute -top-8 left-[10%] text-orange font-montserrat font-extrabold text-sm opacity-0 group-hover:animate-[popBark_1.2s_ease-out_0.1s_forwards] pointer-events-none rotate-[-12deg] drop-shadow-md">Au-au!</span>
+                    <span class="absolute -top-10 right-[15%] text-white font-montserrat font-extrabold text-base opacity-0 group-hover:animate-[popBark_1.2s_ease-out_0.5s_forwards] pointer-events-none rotate-[15deg] drop-shadow-md">Miauuu!</span>
                     
                     <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
-                        <div class="absolute inset-0 w-full h-full -translate-x-full group-hover/btn-social:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                        <div class="absolute inset-0 w-full h-full -translate-x-full group-hover:animate-[sweep_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                     </div>
-                    <iconify-icon icon="ic:baseline-whatsapp" width="24" class="relative z-10"></iconify-icon>
+                    <iconify-icon icon="ic:baseline-whatsapp" width="24" class="relative z-10 shrink-0"></iconify-icon>
                     <span class="relative z-10 tracking-tight">Falar com um Especialista Agora</span>
                 </a>
                 <p class="mt-4 text-white/40 font-inter text-xs font-medium flex items-center gap-2">
@@ -1207,20 +1212,20 @@
                             </div>
                             <div>
                                 <p class="text-navy/40 text-[10px] uppercase tracking-widest font-bold">WhatsApp & Fone</p>
-                                <p class="text-navy font-montserrat font-extrabold text-lg">(31) 98857-9302</p>
+                                <p class="text-navy font-montserrat font-extrabold text-[12px] xxs:text-sm md:text-lg">(31) 98857-9302</p>
                             </div>
                         </a>
 
                         <!-- Email Card -->
-                        <div class="glass-light-card flex items-center gap-5 border border-stone-200 bg-white/40 backdrop-blur-md rounded-2xl p-6 transition-all duration-500">
-                            <div class="w-12 h-12 rounded-2xl bg-navy/5 flex items-center justify-center text-navy/40">
+                        <a href="mailto:superdogvetpetshop@gmail.com" class="glass-light-card flex items-center gap-5 group no-underline border border-stone-200 bg-white/40 backdrop-blur-md rounded-2xl p-6 transition-all duration-500 hover:shadow-xl hover:-translate-y-1.5 hover:border-orange/30">
+                            <div class="w-12 h-12 rounded-2xl bg-navy/5 flex items-center justify-center text-navy/40 group-hover:bg-orange/10 group-hover:text-orange transition-all">
                                 <iconify-icon icon="solar:letter-bold" width="24"></iconify-icon>
                             </div>
-                            <div class="overflow-hidden">
+                            <div class="flex-grow min-w-0">
                                 <p class="text-navy/40 text-[10px] uppercase tracking-widest font-bold">E-mail</p>
-                                <p class="text-navy/80 font-inter text-sm truncate">superdogvetpetshop@gmail.com</p>
+                                <p class="text-navy font-montserrat font-extrabold text-[12px] xxs:text-sm md:text-lg group-hover:text-navy transition-colors">superdogvetpetshop@gmail.com</p>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Instagram Card -->
                         <a href="https://www.instagram.com/superdogvetpetshop/" target="_blank" class="glass-light-card flex items-center gap-5 group no-underline border border-stone-200 bg-white/40 backdrop-blur-md rounded-2xl p-6 transition-all duration-500 hover:shadow-xl hover:-translate-y-1.5 hover:border-orange/30">
@@ -1229,7 +1234,7 @@
                             </div>
                             <div>
                                 <p class="text-navy/40 text-[10px] uppercase tracking-widest font-bold">Instagram</p>
-                                <p class="text-navy font-montserrat font-bold text-lg group-hover:text-pink-500 transition-colors">@superdogvetpetshop</p>
+                                <p class="text-navy font-montserrat font-extrabold text-[12px] xxs:text-sm md:text-lg group-hover:text-pink-500 transition-colors">@superdogvetpetshop</p>
                             </div>
                         </a>
                     </div>
@@ -1267,12 +1272,21 @@
                         <address class="not-italic text-navy/90 font-montserrat font-extrabold text-sm tracking-wide mb-2 group-hover:text-orange transition-colors">
                             R. Taboão da Serra, 412 - Itaipu, Belo Horizonte (Perto de você no Barreiro).
                         </address>
-                        <div class="flex items-center justify-center lg:justify-start gap-3 text-stone-400 text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
-                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:parking-bold" class="text-orange"></iconify-icon> Fácil de estacionar no Itaipu</span>
-                            <span class="w-1.5 h-1.5 rounded-full bg-stone-200"></span>
-                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:coffee-bold" class="text-orange"></iconify-icon> Café Quentinho</span>
-                            <span class="w-1.5 h-1.5 rounded-full bg-stone-200"></span>
-                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:heart-bold" class="text-orange"></iconify-icon> Atendimento Humanizado</span>
+                        <div class="grid grid-cols-3 gap-1 md:flex md:items-center justify-center lg:justify-start md:gap-4 text-stone-400 text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-center md:text-left mt-2">
+                            <div class="flex flex-col items-center gap-1">
+                                <iconify-icon icon="fa6-solid:car" class="text-orange text-sm md:text-base"></iconify-icon> 
+                                <span class="max-w-[70px] leading-tight">Fácil de Estacionar</span>
+                            </div>
+                            <div class="hidden md:block w-1.5 h-1.5 rounded-full bg-stone-200"></div>
+                            <div class="flex flex-col items-center gap-1">
+                                <iconify-icon icon="solar:cup-hot-bold" class="text-orange text-sm md:text-base"></iconify-icon> 
+                                <span class="max-w-[70px] leading-tight">Café Quentinho</span>
+                            </div>
+                            <div class="hidden md:block w-1.5 h-1.5 rounded-full bg-stone-200"></div>
+                            <div class="flex flex-col items-center gap-1">
+                                <iconify-icon icon="solar:heart-bold" class="text-orange text-sm md:text-base"></iconify-icon> 
+                                <span class="max-w-[80px] leading-tight">Atendimento Humanizado</span>
+                            </div>
                         </div>
                     </div>
                 </div>
