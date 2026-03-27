@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && powershell -Command \"Copy-Item -Path 'assets' -Destination 'dist' -Recurse -Force\"",
+    "build": "vite build && node scripts/copy-assets.js",
     "preview": "vite preview"
   },
   "devDependencies": {
