@@ -94,7 +94,7 @@
     <style>
         /* [Critical CSS] Structural styles for High Performance LCP */
         .bg-navy { background-color: #002A5B; }
-        .text-orange { color: #EA580C; } /* WCAG AA Compliant on Navy and Light backgrounds for Large Text */
+        .text-orange { color: #C2410C; } /* WCAG AA Compliant for all backgrounds */
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
         .flex { display: flex; }
         .items-center { align-items: center; }
@@ -458,6 +458,7 @@
                 <!-- Main Video -->
                 <video class="w-full aspect-video object-cover" autoplay muted loop playsinline preload="none" poster="assets/images/IMG003_VET_MULHER.webp" aria-label="Vídeo institucional do Super Dog">
                     <source src="assets/videos/VD001_SUPERDOG v3.mp4" type="video/mp4">
+                    <track kind="captions" src="assets/captions/empty.vtt" srclang="pt" label="Português">
                     Seu navegador não suporta vídeos.
                 </video>
                 <!-- Gradient Scrim for readability -->
@@ -914,7 +915,7 @@
     <footer class="bg-navy py-12 border-t border-white/5 z-40 relative">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-4">
-                <img src="assets/images/LOGOS_SUPER_DOG_CLINICA_SEM_FUNDO.webp" alt="Super Dog Logo" class="h-24 opacity-60 brightness-0 invert" loading="lazy" decoding="async"/>
+                <img src="assets/images/LOGOS_SUPER_DOG_CLINICA_SEM_FUNDO.webp" alt="Super Dog Logo" width="300" height="150" class="h-24 opacity-60 brightness-0 invert" loading="lazy" decoding="async"/>
                 <p class="text-white text-xs font-inter uppercase tracking-widest font-medium">© 2026 Super Dog Clínica Veterinária. Todos os direitos reservados.</p>
             </div>
             <div class="flex items-center gap-1.5">
@@ -1058,13 +1059,13 @@
                     const petloveLogo = "assets/" + "images/LOGOS_SUPER_DOG_PET_LOVE_SEM_FUNDO.webp";
                     const sourceLogo = review.source === 'google' 
                         ? `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-2 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><iconify-icon icon="logos:google-icon" width="22"></iconify-icon></div>`
-                        : `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><img src="${petloveLogo}" alt="Petlove" class="w-full h-full object-contain" loading="lazy" decoding="async"/></div>`;
+                        : `<div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_5px_15px_rgba(0,0,0,0.2)] shrink-0 border border-white/20"><img src="${petloveLogo}" alt="Petlove" width="48" height="48" class="w-full h-full object-contain" loading="lazy" decoding="async"/></div>`;
 
                     wrapper.innerHTML = `
                         <div class="review-card">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="flex items-center gap-3">
-                                    <img src="${avatar}" class="w-10 h-10 rounded-full border border-white/10" alt="${review.author}">
+                                    <img src="${avatar}" width="40" height="40" class="w-10 h-10 rounded-full border border-white/10" alt="${review.author}">
                                     <div>
                                         <h3 class="text-white font-montserrat font-bold text-xs md:text-sm leading-tight">${review.author}</h3>
                                         <span class="text-white/40 font-inter text-[9px] uppercase tracking-wider">${review.date}</span>
