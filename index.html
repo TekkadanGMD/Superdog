@@ -9,15 +9,40 @@
     })(window,document,'script','dataLayer','GTM-PCFKGGGL');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- GeoLocation DataLayer Push (Conversões Otimizadas) -->
+    <!-- GeoLocation & External ID DataLayer Push (Conversões Otimizadas) -->
     <script>
         window.dataLayer = window.dataLayer || [];
+
+        // 1. External ID Tracking (Persistent User Identity)
+        function getExternalId() {
+            let extId = localStorage.getItem('superdog_external_id');
+            if (!extId) {
+                // Generate a crypto-random secure ID
+                const randomPart = (window.crypto && window.crypto.randomUUID) 
+                    ? window.crypto.randomUUID() 
+                    : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                extId = 'sd_' + randomPart;
+                localStorage.setItem('superdog_external_id', extId);
+            }
+            return extId;
+        }
+        
+        const userExternalId = getExternalId();
+        
+        // Push External ID immediately so it's ready for any early firing tags
+        window.dataLayer.push({
+            'event': 'external_id_ready',
+            'external_id': userExternalId
+        });
+
+        // 2. Fetch GeoLocation details
         fetch('https://ipapi.co/json/')
             .then(res => res.json())
             .then(data => {
                 if (!data.error) {
                     window.dataLayer.push({
                         'event': 'geo_location_ready',
+                        'external_id': userExternalId, // Inclui o extrnal_id para garantir vínculo
                         'user_country': data.country_name || '',
                         'user_state': data.region || '',
                         'user_city': data.city || '',
