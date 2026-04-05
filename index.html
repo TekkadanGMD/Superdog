@@ -8,6 +8,27 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PCFKGGGL');</script>
     <!-- End Google Tag Manager -->
+
+    <!-- GeoLocation DataLayer Push (Conversões Otimizadas) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        fetch('https://ipapi.co/json/')
+            .then(res => res.json())
+            .then(data => {
+                if (!data.error) {
+                    window.dataLayer.push({
+                        'event': 'geo_location_ready',
+                        'user_country': data.country_name || '',
+                        'user_state': data.region || '',
+                        'user_city': data.city || '',
+                        'user_postal_code': data.postal || '',
+                        'user_ip': data.ip || ''
+                    });
+                }
+            })
+            .catch(err => console.warn('GeoLocation access failed:', err));
+    </script>
+
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Clínica Veterinária no Barreiro BH | Super Dog: 20 Anos de Cuidado na Região do Barreiro e Ibirité</title>
